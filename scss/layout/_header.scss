@@ -1,10 +1,14 @@
+%flexItemCenter {
+  display: flex;
+  align-items: center;
+}
+
 .header {
   background: #eee;
 }
 
 .top-bar {
-  display: flex;
-  align-items: center;
+  @extend %flexItemCenter;
   padding: 30px 0;
 }
 
@@ -13,14 +17,12 @@
   margin-left: 144px;
 
   &__list {
-    display: flex;
-    align-items: center;
+    @extend %flexItemCenter;
     gap: 30px;
   }
 
   &__link {
-    display: flex;
-    align-items: center;
+    @extend %flexItemCenter;
     gap: 6px;
     font-size: 1.5rem;
     font-weight: 500;
@@ -33,13 +35,11 @@
 }
 
 .top-act {
-  display: flex;
-  align-items: center;
+  @extend %flexItemCenter;
   gap: 20px;
 
   &__group {
-    display: flex;
-    align-items: center;
+    @extend %flexItemCenter;
     min-width: 50px;
     height: 50px;
     border-radius: 8px;
@@ -52,10 +52,10 @@
   }
 
   &__btn {
-    display: flex;
-    align-items: center;
+    @extend %flexItemCenter;
     padding: 13px 20px;
     gap: 10px;
+    cursor: pointer;
   }
 
   &__title {
@@ -76,5 +76,6 @@
     border-radius: 8px;
     object-fit: cover;
     display: block;
+    cursor: pointer;
   }
 }
