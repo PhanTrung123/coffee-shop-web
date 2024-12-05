@@ -147,6 +147,7 @@ body {
   font-size: 1.6rem;
   font-family: Gordita, sans-serif;
   color: var(--text-color);
+  background: var(--body-background);
 }
 
 a {
@@ -1207,6 +1208,7 @@ html.dark {
   --text-color: #fff;
   --icon-color: brightness(0) saturate(100%) invert(100%) sepia(100%)
     saturate(0%) hue-rotate(307deg) brightness(102%) contrast(102%);
+  --body-background: #292e39;
   --header-background-color: #171c28;
   --top-act-group-bg-color: #292e39;
   --top-act-group-shadow: rgba(0, 0, 0, 0.2);
@@ -1217,10 +1219,16 @@ html {
   --text-color: #1a162e;
   --icon-color: brightness(0) saturate(100%) invert(9%) sepia(12%)
     saturate(2680%) hue-rotate(210deg) brightness(95%) contrast(98%);
+  --body-background: #f6f6f6;
   --header-background-color: #eee;
   --top-act-group-bg-color: #fff;
   --top-act-group-shadow: rgba(237, 237, 246, 0.2);
   --top-act-group-separate: #ededf6;
+}
+@media (max-width: calc(992px - 0.02px)) {
+  html {
+    --header-background-color: #fff;
+  }
 }
 
 .top-act__btn, .top-act__group, .top-act, .navbar__link, .navbar__list, .top-bar {
@@ -1228,10 +1236,17 @@ html {
   align-items: center;
 }
 
+@media (max-width: calc(576px - 0.02px)) {
+  .logo {
+    margin: 0 auto;
+  }
+}
+
 .logo__img {
   width: 40px;
   height: 40px;
   object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .header {
@@ -1248,6 +1263,7 @@ html {
 }
 @media (max-width: calc(576px - 0.02px)) {
   .top-bar {
+    justify-content: space-between;
     padding: 16px 0;
   }
 }
@@ -1294,6 +1310,16 @@ html {
 .top-act {
   margin-left: auto;
   gap: 20px;
+}
+@media (max-width: calc(576px - 0.02px)) {
+  .top-act {
+    margin-left: 0;
+  }
+}
+@media (max-width: calc(768px - 0.02px)) {
+  .top-act {
+    margin-left: 0;
+  }
 }
 .top-act__group {
   min-width: 50px;
@@ -1352,7 +1378,7 @@ html {
 @media (max-width: calc(992px - 0.02px)) {
   .logo {
     gap: 10px;
-    margin-left: 39px;
+    margin: 0 auto;
   }
 }
 .logo__title {
@@ -1368,6 +1394,7 @@ html {
 @media (max-width: calc(992px - 0.02px)) {
   .logo__img {
     width: 50px;
+    height: 50px;
   }
 }
 

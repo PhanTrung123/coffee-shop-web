@@ -5,10 +5,17 @@
   align-items: center;
 }
 
+.logo {
+  @include abstracts.breakpoint(sm) {
+    margin: 0 auto;
+  }
+}
+
 .logo__img {
   width: 40px;
   height: 40px;
   object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .header {
@@ -24,6 +31,7 @@
   }
 
   @include abstracts.breakpoint(sm) {
+    justify-content: space-between;
     padding: 16px 0;
   }
 
@@ -73,6 +81,14 @@
   @extend %flexItemCenter;
   margin-left: auto;
   gap: 20px;
+
+  @include abstracts.breakpoint(sm) {
+    margin-left: 0;
+  }
+
+  @include abstracts.breakpoint(md) {
+    margin-left: 0;
+  }
 
   &__group {
     @extend %flexItemCenter;
