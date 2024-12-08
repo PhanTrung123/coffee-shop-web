@@ -6,9 +6,9 @@
   // display: none;
 
   &__inner {
+    --inner-padding: 30px;
     position: relative;
-    padding: 30px;
-    max-height: min(582px, 100vh - 158px);
+    padding: var(--inner-padding);
     border-radius: 20px;
     background: var(--dropdown-bg-color);
     box-shadow: 0px 40px 90px 20px var(--dropdown-shadow-color);
@@ -25,18 +25,24 @@
 }
 
 .top-menu {
-  height: 100%;
-
+  --main-column-width: 292px;
+  position: relative;
   &__main {
-    height: 100%;
+    max-height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
     width: 292px;
     border-right: 1px solid var(--top-menu-border-color);
+    overflow-y: auto;
   }
 }
 
 .menu-column {
   display: flex;
   gap: 14px;
+
+  //dấu + : ảnh hướng lớp anh chị e liền kề
+  + .menu-column {
+    margin-top: 22px;
+  }
 
   &__icon {
     position: relative;
@@ -51,7 +57,7 @@
 
   &__icon-1,
   &__icon-2 {
-    object-fit: cover;
+    object-fit: contain;
   }
 
   &__icon-1 {
@@ -65,6 +71,7 @@
     height: 24px;
     right: 0;
     bottom: 0;
+    filter: var(--dropdown-icon2-color);
   }
 
   &__heading {
@@ -78,16 +85,32 @@
     margin-top: 26px;
   }
 
+  &__item {
+    &:hover .sub-menu {
+      display: grid;
+    }
+  }
+
+  &__item:hover > &__link {
+    color: #0071dc;
+    font-weight: 500;
+  }
+
   &__link {
     display: block;
     padding: 7px 0;
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 143%;
-
-    &:hover {
-      color: #0071dc;
-      font-weight: 500;
-    }
   }
+}
+
+.sub-menu {
+  position: absolute;
+  inset: 0 0 0 var(--main-column-width);
+  padding-left: var(--inner-padding);
+  gap: var(--inner-padding);
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  overflow-y: auto;
 }
