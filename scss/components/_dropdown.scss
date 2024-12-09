@@ -1,9 +1,10 @@
+@use "../abstracts";
 .dropdown {
   position: absolute;
   left: 0;
   width: min(1240px, 100%);
   padding-top: 54px;
-  // display: none;
+  display: none;
 
   &__inner {
     --inner-padding: 30px;
@@ -49,6 +50,10 @@
     flex-shrink: 0;
     width: 36px;
     height: 36px;
+
+    @include abstracts.breakpoint(xl) {
+      display: none;
+    }
   }
 
   &__content {
@@ -86,11 +91,12 @@
   }
 
   &__item {
-    &:hover .sub-menu {
+    &--active .sub-menu {
       display: grid;
     }
   }
 
+  &__item--active > &__link,
   &__item:hover > &__link {
     color: #0071dc;
     font-weight: 500;
