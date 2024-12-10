@@ -27,9 +27,10 @@
 
 .top-menu {
   --main-column-width: 292px;
+  --max-inner-height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
   position: relative;
   &__main {
-    max-height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
+    max-height: var(--max-inner-height);
     width: 292px;
     border-right: 1px solid var(--top-menu-border-color);
     overflow-y: auto;
@@ -119,4 +120,13 @@
   display: none;
   grid-template-columns: repeat(3, 1fr);
   overflow-y: auto;
+
+  &--not-main {
+    position: initial;
+    inset: initial;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: var(--max-inner-height);
+    padding-left: 0;
+  }
 }
