@@ -61,15 +61,69 @@
   }
 
   @include abstracts.breakpoint(lg) {
+    position: fixed;
+    z-index: 10;
+    inset: 0 50% 0 0;
+    background: #fff;
+    padding: 20px 0;
+    margin-left: 0;
+    translate: -100%;
+    transition: translate 0.5s;
+
+    &.show {
+      translate: 0;
+    }
+
+    &.show ~ &__overlay {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__close-btn {
+    display: none;
+
+    @include abstracts.breakpoint(lg) {
+      display: block;
+      padding: 10px 40px;
+    }
+  }
+
+  //chỉ hiện trên tablet
+  &__overlay {
+    visibility: hidden;
+    opacity: 0;
+
+    @include abstracts.breakpoint(lg) {
+      // visibility: 1;
+      // opacity: 1;
+      position: fixed;
+      inset: 0;
+      transition: opacity, visibility;
+      transition-duration: 0.5s;
+      background: rgba($color: #000, $alpha: 0.4);
+    }
   }
 
   &__list {
     @extend %flexItemCenter;
+
+    @include abstracts.breakpoint(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__item {
+    width: 100%;
     &:hover .dropdown {
       display: block;
+    }
+
+    @include abstracts.breakpoint(lg) {
+      &:hover .dropdown {
+        display: none;
+      }
     }
   }
 
@@ -81,6 +135,14 @@
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 147%;
+
+    @include abstracts.breakpoint(lg) {
+      justify-content: space-between;
+      padding: 0 40px;
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 150%;
+    }
   }
 
   &__arrow {
