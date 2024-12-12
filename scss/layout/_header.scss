@@ -103,19 +103,19 @@
     @include abstracts.breakpoint(lg) {
       flex-direction: column;
       align-items: flex-start;
+
+      overflow-y: auto;
+      height: calc(100% - 26px);
     }
   }
 
   &__item {
-    width: 100%;
     &:hover .dropdown {
       display: block;
     }
 
     @include abstracts.breakpoint(lg) {
-      &:hover .dropdown {
-        display: none;
-      }
+      width: 100%;
     }
   }
 

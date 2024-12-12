@@ -1437,17 +1437,16 @@ html {
   .navbar__list {
     flex-direction: column;
     align-items: flex-start;
+    overflow-y: auto;
+    height: calc(100% - 26px);
   }
-}
-.navbar__item {
-  width: 100%;
 }
 .navbar__item:hover .dropdown {
   display: block;
 }
 @media (max-width: calc(992px - 0.02px)) {
-  .navbar__item:hover .dropdown {
-    display: none;
+  .navbar__item {
+    width: 100%;
   }
 }
 .navbar__link {
@@ -1554,6 +1553,13 @@ html {
   padding-top: 54px;
   display: none;
 }
+@media (max-width: calc(992px - 0.02px)) {
+  .dropdown {
+    padding-top: 0;
+    position: initial;
+    display: block;
+  }
+}
 .dropdown__inner {
   --inner-padding: 30px;
   position: relative;
@@ -1570,6 +1576,17 @@ html {
   translate: -50%;
   filter: var(--dropdown-arrow-color);
 }
+@media (max-width: calc(992px - 0.02px)) {
+  .dropdown__inner {
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0 40px;
+  }
+  .dropdown__inner::before {
+    content: none;
+  }
+}
 
 .top-menu {
   --main-column-width: 292px;
@@ -1581,6 +1598,13 @@ html {
   width: 292px;
   border-right: 1px solid var(--top-menu-border-color);
   overflow-y: auto;
+}
+@media (max-width: calc(992px - 0.02px)) {
+  .top-menu__main {
+    width: 100%;
+    height: auto;
+    border-right: none;
+  }
 }
 
 .menu-column {
@@ -1599,6 +1623,12 @@ html {
 @media (max-width: calc(1200px - 0.02px)) {
   .menu-column__icon {
     display: none;
+  }
+}
+@media (max-width: calc(992px - 0.02px)) {
+  .menu-column__icon {
+    display: block;
+    margin-top: 10px;
   }
 }
 .menu-column__content {
@@ -1625,8 +1655,18 @@ html {
   line-height: 150%;
   margin-top: 3px;
 }
+@media (max-width: calc(992px - 0.02px)) {
+  .menu-column__heading {
+    margin-bottom: 26px;
+  }
+}
 .menu-column__list {
   margin-top: 26px;
+}
+@media (max-width: calc(992px - 0.02px)) {
+  .menu-column__list {
+    margin-top: 0;
+  }
 }
 .menu-column__item--active .sub-menu {
   display: grid;
@@ -1651,6 +1691,13 @@ html {
   display: none;
   grid-template-columns: repeat(3, 1fr);
   overflow-y: auto;
+}
+@media (max-width: calc(992px - 0.02px)) {
+  .sub-menu {
+    position: initial;
+    grid-template-columns: repeat(1, 1fr);
+    padding-left: 0;
+  }
 }
 .sub-menu--not-main {
   position: initial;

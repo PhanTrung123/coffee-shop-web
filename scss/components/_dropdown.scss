@@ -6,6 +6,12 @@
   padding-top: 54px;
   display: none;
 
+  @include abstracts.breakpoint(lg) {
+    padding-top: 0;
+    position: initial;
+    display: block;
+  }
+
   &__inner {
     --inner-padding: 30px;
     position: relative;
@@ -22,6 +28,17 @@
       translate: -50%;
       filter: var(--dropdown-arrow-color);
     }
+
+    @include abstracts.breakpoint(lg) {
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      padding: 0 40px;
+
+      &::before {
+        content: none;
+      }
+    }
   }
 }
 
@@ -34,6 +51,12 @@
     width: 292px;
     border-right: 1px solid var(--top-menu-border-color);
     overflow-y: auto;
+
+    @include abstracts.breakpoint(lg) {
+      width: 100%;
+      height: auto;
+      border-right: none;
+    }
   }
 }
 
@@ -54,6 +77,11 @@
 
     @include abstracts.breakpoint(xl) {
       display: none;
+    }
+
+    @include abstracts.breakpoint(lg) {
+      display: block;
+      margin-top: 10px;
     }
   }
 
@@ -85,10 +113,18 @@
     font-size: 1.6rem;
     line-height: 150%;
     margin-top: 3px;
+
+    @include abstracts.breakpoint(lg) {
+      margin-bottom: 26px;
+    }
   }
 
   &__list {
     margin-top: 26px;
+
+    @include abstracts.breakpoint(lg) {
+      margin-top: 0;
+    }
   }
 
   &__item {
@@ -120,6 +156,13 @@
   display: none;
   grid-template-columns: repeat(3, 1fr);
   overflow-y: auto;
+
+  @include abstracts.breakpoint(lg) {
+    //initial:  đặt phần tử về trạng thái mặc định của nó
+    position: initial;
+    grid-template-columns: repeat(1, 1fr);
+    padding-left: 0;
+  }
 
   &--not-main {
     position: initial;
