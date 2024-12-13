@@ -115,6 +115,7 @@
       align-items: flex-start;
       scroll-behavior: smooth;
       overflow-y: auto;
+      overscroll-behavior: contain;
       height: calc(100% - 40px);
     }
 
