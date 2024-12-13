@@ -3,8 +3,8 @@
 
 html {
   --text-color: #1a162e;
-  --icon-color: brightness(0) saturate(100%) invert(9%) sepia(12%)
-    saturate(2680%) hue-rotate(210deg) brightness(95%) contrast(98%);
+  --icon-color: brightness(0) saturate(100%) invert(9%) sepia(12%) saturate(2680%) hue-rotate(210deg) brightness(95%)
+    contrast(98%);
 
   --body-background: #f6f6f6;
   --header-background-color: #eee;
@@ -21,4 +21,8 @@ html {
   --dropdown-bg-color: #fff;
   --dropdown-shadow-color: rgba(200, 200, 200, 0.4);
   --top-menu-border-color: #d2d1d6;
+
+  //Sidebar (cho tablet đổ xuống)
+  --sidebar-bg: #fff;
+  --sidebar-shadow: rgba(200, 200, 200, 0.4);
 }

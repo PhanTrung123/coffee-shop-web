@@ -56,14 +56,16 @@
     position: fixed;
     z-index: 10;
     inset: 0 50% 0 0;
-    background: #fff;
+    background: var(--sidebar-bg);
     padding: 20px 0;
     margin-left: 0;
     translate: -100%;
     transition: translate 0.5s;
+    border-radius: 0 20px 20px 0;
 
     &.show {
       translate: 0;
+      box-shadow: 0px 40px 90px 20px var(--sidebar-shadow);
     }
 
     &.show ~ &__overlay {
@@ -72,12 +74,20 @@
     }
   }
 
+  @include abstracts.breakpoint(sm) {
+    inset: 0 20% 0 0;
+  }
+
   &__close-btn {
     display: none;
 
     @include abstracts.breakpoint(lg) {
       display: block;
       padding: 10px 40px;
+    }
+
+    @include abstracts.breakpoint(sm) {
+      padding: 0 20px 10px;
     }
   }
 
@@ -105,7 +115,15 @@
       align-items: flex-start;
       scroll-behavior: smooth;
       overflow-y: auto;
-      height: calc(100% - 26px);
+      height: calc(100% - 40px);
+    }
+
+    @include abstracts.breakpoint(md) {
+      height: calc(100% - 140px);
+    }
+
+    @include abstracts.breakpoint(sm) {
+      height: calc(100% - 124px);
     }
   }
 
@@ -143,6 +161,11 @@
       font-size: 1.6rem;
       font-weight: 500;
       line-height: 150%;
+    }
+
+    @include abstracts.breakpoint(sm) {
+      height: 44px;
+      padding: 0 20px;
     }
   }
 
@@ -212,5 +235,33 @@
     object-fit: cover;
     display: block;
     cursor: pointer;
+  }
+}
+
+.nav-btn {
+  height: 50px;
+  align-items: center;
+  padding: 0 40px;
+
+  &__title,
+  &__quantity {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 147%;
+  }
+
+  &__title {
+    margin-left: 16px;
+  }
+
+  &__quantity {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @include abstracts.breakpoint(sm) {
+    height: 44px;
+    padding: 0 20px;
   }
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="top-bar">
     <!-- More btn (only mobile & tablet) -->
-    <button class="top-bar__more d-none d-lg-block js-toggle" toggle-target="#navbar">
+    <button class="top-bar__more d-none d-lg-block js-toggle icon" toggle-target="#navbar">
       <img src="./assets/icons/more.svg" alt="" class="icon top-bar__more-icon" />
     </button>
 
@@ -13,9 +13,22 @@
 
     <!-- Navbar -->
     <nav id="navbar" class="navbar show">
-      <button class="navbar__close-btn js-toggle" toggle-target="#navbar">
+      <button class="navbar__close-btn js-toggle icon" toggle-target="#navbar">
         <img src="./assets/icons/arrow-left.svg" alt="" />
       </button>
+
+      <a href="#!" class="nav-btn d-none d-md-flex">
+        <img src="../assets/icons/cart.svg" alt="" class="nav-btn__icon icon" />
+        <span class="nav-btn__title">Card</span>
+        <span class="nav-btn__quantity">3</span>
+      </a>
+
+      <a href="#!" class="nav-btn d-none d-md-flex">
+        <img src="../assets/icons/heart.svg" alt="" class="nav-btn__icon icon" />
+        <span class="nav-btn__title">Favorite</span>
+        <span class="nav-btn__quantity">3</span>
+      </a>
+
       <ul class="navbar__list js-dropdown-list">
         <li class="navbar__item">
           <a href="#!" class="navbar__link"

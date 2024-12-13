@@ -1295,8 +1295,8 @@ select {
 }
 html.dark {
   --text-color: #fff;
-  --icon-color: brightness(0) saturate(100%) invert(100%) sepia(100%)
-    saturate(0%) hue-rotate(307deg) brightness(102%) contrast(102%);
+  --icon-color: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(307deg) brightness(102%)
+    contrast(102%);
   --body-background: #292e39;
   --header-background-color: #171c28;
   --top-act-group-bg-color: #292e39;
@@ -1304,11 +1304,13 @@ html.dark {
   --top-act-group-separate: #ededf6;
   --dropdown-bg-color: #2f3441;
   --dropdown-shadow-color: rgba(23, 28, 40, 0.4);
-  --dropdown-arrow-color: brightness(0) saturate(100%) invert(18%) sepia(8%)
-    saturate(1495%) hue-rotate(186deg) brightness(92%) contrast(89%);
+  --dropdown-arrow-color: brightness(0) saturate(100%) invert(18%) sepia(8%) saturate(1495%) hue-rotate(186deg)
+    brightness(92%) contrast(89%);
   --top-menu-border-color: #171c28;
-  --dropdown-icon2-color: brightness(0) saturate(100%) invert(98%) sepia(82%)
-    saturate(225%) hue-rotate(221deg) brightness(115%) contrast(95%);
+  --dropdown-icon2-color: brightness(0) saturate(100%) invert(98%) sepia(82%) saturate(225%) hue-rotate(221deg)
+    brightness(115%) contrast(95%);
+  --sidebar-bg: #292e39;
+  --sidebar-shadow: rgba(23, 28, 40, 0.4);
 }
 @media (max-width: calc(992px - 0.02px)) {
   html.dark {
@@ -1318,8 +1320,8 @@ html.dark {
 
 html {
   --text-color: #1a162e;
-  --icon-color: brightness(0) saturate(100%) invert(9%) sepia(12%)
-    saturate(2680%) hue-rotate(210deg) brightness(95%) contrast(98%);
+  --icon-color: brightness(0) saturate(100%) invert(9%) sepia(12%) saturate(2680%) hue-rotate(210deg) brightness(95%)
+    contrast(98%);
   --body-background: #f6f6f6;
   --header-background-color: #eee;
   --top-act-group-bg-color: #fff;
@@ -1328,6 +1330,8 @@ html {
   --dropdown-bg-color: #fff;
   --dropdown-shadow-color: rgba(200, 200, 200, 0.4);
   --top-menu-border-color: #d2d1d6;
+  --sidebar-bg: #fff;
+  --sidebar-shadow: rgba(200, 200, 200, 0.4);
 }
 @media (max-width: calc(992px - 0.02px)) {
   html {
@@ -1397,18 +1401,25 @@ html {
     position: fixed;
     z-index: 10;
     inset: 0 50% 0 0;
-    background: #fff;
+    background: var(--sidebar-bg);
     padding: 20px 0;
     margin-left: 0;
     translate: -100%;
     transition: translate 0.5s;
+    border-radius: 0 20px 20px 0;
   }
   .navbar.show {
     translate: 0;
+    box-shadow: 0px 40px 90px 20px var(--sidebar-shadow);
   }
   .navbar.show ~ .navbar__overlay {
     visibility: visible;
     opacity: 1;
+  }
+}
+@media (max-width: calc(576px - 0.02px)) {
+  .navbar {
+    inset: 0 20% 0 0;
   }
 }
 .navbar__close-btn {
@@ -1418,6 +1429,11 @@ html {
   .navbar__close-btn {
     display: block;
     padding: 10px 40px;
+  }
+}
+@media (max-width: calc(576px - 0.02px)) {
+  .navbar__close-btn {
+    padding: 0 20px 10px;
   }
 }
 .navbar__overlay {
@@ -1439,7 +1455,17 @@ html {
     align-items: flex-start;
     scroll-behavior: smooth;
     overflow-y: auto;
-    height: calc(100% - 26px);
+    height: calc(100% - 40px);
+  }
+}
+@media (max-width: calc(768px - 0.02px)) {
+  .navbar__list {
+    height: calc(100% - 140px);
+  }
+}
+@media (max-width: calc(576px - 0.02px)) {
+  .navbar__list {
+    height: calc(100% - 124px);
   }
 }
 .navbar__item:hover .dropdown {
@@ -1472,6 +1498,12 @@ html {
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 150%;
+  }
+}
+@media (max-width: calc(576px - 0.02px)) {
+  .navbar__link {
+    height: 44px;
+    padding: 0 20px;
   }
 }
 .navbar__arrow {
@@ -1533,6 +1565,31 @@ html {
   object-fit: cover;
   display: block;
   cursor: pointer;
+}
+
+.nav-btn {
+  height: 50px;
+  align-items: center;
+  padding: 0 40px;
+}
+.nav-btn__title, .nav-btn__quantity {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 147%;
+}
+.nav-btn__title {
+  margin-left: 16px;
+}
+.nav-btn__quantity {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+@media (max-width: calc(576px - 0.02px)) {
+  .nav-btn {
+    height: 44px;
+    padding: 0 20px;
+  }
 }
 
 .logo {
