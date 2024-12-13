@@ -66,7 +66,7 @@ function debounce(func, timeout = 300) {
 }
 
 /**
- * Hàm tính toán vị trí arrow (mũi tên) cho dropdown
+ * Hàm tính toán vị trí arrow cho dropdown
  *
  * Cách dùng:
  * 1. Thêm class "js-dropdown-list" vào thẻ ul cấp 1
@@ -114,13 +114,19 @@ function handleActiveMenu() {
       if (!items.length) return;
 
       removeActive(menu);
-      items[0].classList.add(activeClass);
+      if (window.innerWidth > 991) items[0].classList.add(activeClass);
 
       Array.from(items).forEach((item) => {
         item.onmouseenter = () => {
           if (window.innerWidth <= 991) return;
           removeActive(menu);
           item.classList.add(activeClass);
+        };
+        item.onclick = () => {
+          if (window.innerWidth > 991) return;
+          removeActive(menu);
+          item.classList.add(activeClass);
+          item.scrollIntoView();
         };
       });
     });
@@ -148,7 +154,9 @@ function initJsToggle() {
     if (!target) {
       document.body.innerText = `Cần thêm toggle-target cho: ${button.outerHTML}`;
     }
-    button.onclick = () => {
+    button.onclick = (e) => {
+      e.preventDefault();
+
       if (!$(target)) {
         return (document.body.innerText = `Không tìm thấy phần tử "${target}"`);
       }
@@ -159,5 +167,64 @@ function initJsToggle() {
         $(target).classList.toggle("show", isHidden);
       });
     };
+    document.onclick = function (e) {
+      if (!e.target.closest(target)) {
+        const isHidden = $(target).classList.contains("hide");
+        if (!isHidden) {
+          button.click();
+        }
+      }
+    };
   });
 }
+
+window.addEventListener("template-loaded", () => {
+  const links = $$(".js-dropdown-list > li > a");
+
+  links.forEach((link) => {
+    link.onclick = () => {
+      if (window.innerWidth > 991) return;
+      const item = link.closest("li");
+      item.classList.toggle("navbar__item--active");
+    };
+  });
+});
+
+window.addEventListener("template-loaded", () => {
+  const tabsSelector = "prod-tab__item";
+  const contentsSelector = "prod-tab__content";
+
+  const tabActive = `${tabsSelector}--current`;
+  const contentActive = `${contentsSelector}--current`;
+
+  const tabContainers = $$(".js-tabs");
+  tabContainers.forEach((tabContainer) => {
+    const tabs = tabContainer.querySelectorAll(`.${tabsSelector}`);
+    const contents = tabContainer.querySelectorAll(`.${contentsSelector}`);
+    tabs.forEach((tab, index) => {
+      tab.onclick = () => {
+        tabContainer.querySelector(`.${tabActive}`)?.classList.remove(tabActive);
+        tabContainer.querySelector(`.${contentActive}`)?.classList.remove(contentActive);
+        tab.classList.add(tabActive);
+        contents[index].classList.add(contentActive);
+      };
+    });
+  });
+});
+
+window.addEventListener("template-loaded", () => {
+  const switchBtn = document.querySelector("#switch-theme-btn");
+  if (switchBtn) {
+    switchBtn.onclick = function () {
+      const isDark = localStorage.dark === "true";
+      document.querySelector("html").classList.toggle("dark", !isDark);
+      localStorage.setItem("dark", !isDark);
+      switchBtn.querySelector("span").textContent = isDark ? "Dark mode" : "Light mode";
+    };
+    const isDark = localStorage.dark === "true";
+    switchBtn.querySelector("span").textContent = isDark ? "Light mode" : "Dark mode";
+  }
+});
+
+const isDark = localStorage.dark === "true";
+document.querySelector("html").classList.toggle("dark", isDark);

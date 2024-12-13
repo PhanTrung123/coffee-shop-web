@@ -103,7 +103,7 @@
     @include abstracts.breakpoint(lg) {
       flex-direction: column;
       align-items: flex-start;
-
+      scroll-behavior: smooth;
       overflow-y: auto;
       height: calc(100% - 26px);
     }
@@ -116,6 +116,15 @@
 
     @include abstracts.breakpoint(lg) {
       width: 100%;
+      scroll-behavior: smooth;
+
+      &:hover .dropdown {
+        display: none;
+      }
+
+      &--active .dropdown {
+        display: block !important;
+      }
     }
   }
 
@@ -139,6 +148,15 @@
 
   &__arrow {
     margin-top: 3px;
+
+    @include abstracts.breakpoint(lg) {
+      rotate: -90deg;
+      transition: rotate 0.3s;
+    }
+  }
+
+  &__item--active &__arrow {
+    rotate: 0deg;
   }
 }
 

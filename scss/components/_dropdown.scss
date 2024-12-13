@@ -9,7 +9,7 @@
   @include abstracts.breakpoint(lg) {
     padding-top: 0;
     position: initial;
-    display: block;
+    // display: block;
   }
 
   &__inner {
@@ -171,5 +171,9 @@
     grid-template-columns: repeat(4, 1fr);
     height: var(--max-inner-height);
     padding-left: 0;
+
+    @include abstracts.breakpoint(lg) {
+      grid-template-columns: 1fr;
+    }
   }
 }
