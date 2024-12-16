@@ -6,7 +6,7 @@
   padding-top: 54px;
   display: none;
 
-  @include abstracts.breakpoint(lg) {
+  @include abstracts.screen(lg) {
     padding-top: 0;
     position: initial;
     // display: block;
@@ -29,7 +29,7 @@
       filter: var(--dropdown-arrow-color);
     }
 
-    @include abstracts.breakpoint(lg) {
+    @include abstracts.screen(lg) {
       border-radius: 0;
       background: transparent;
       box-shadow: none;
@@ -40,7 +40,7 @@
       }
     }
 
-    @include abstracts.breakpoint(lg) {
+    @include abstracts.screen(lg) {
       padding: 0 20px;
     }
   }
@@ -56,7 +56,7 @@
     border-right: 1px solid var(--top-menu-border-color);
     overflow-y: auto;
 
-    @include abstracts.breakpoint(lg) {
+    @include abstracts.screen(lg) {
       width: 100%;
       height: auto;
       border-right: none;
@@ -79,11 +79,11 @@
     width: 36px;
     height: 36px;
 
-    @include abstracts.breakpoint(xl) {
+    @include abstracts.screen(xl) {
       display: none;
     }
 
-    @include abstracts.breakpoint(lg) {
+    @include abstracts.screen(lg) {
       display: block;
       margin-top: 10px;
     }
@@ -118,7 +118,7 @@
     line-height: 150%;
     margin-top: 3px;
 
-    @include abstracts.breakpoint(lg) {
+    @include abstracts.screen(lg) {
       margin-bottom: 26px;
     }
   }
@@ -126,7 +126,7 @@
   &__list {
     margin-top: 26px;
 
-    @include abstracts.breakpoint(lg) {
+    @include abstracts.screen(lg) {
       margin-top: 0;
     }
   }
@@ -161,7 +161,7 @@
   grid-template-columns: repeat(3, 1fr);
   overflow-y: auto;
 
-  @include abstracts.breakpoint(lg) {
+  @include abstracts.screen(lg) {
     //initial:  đặt phần tử về trạng thái mặc định của nó
     position: initial;
     grid-template-columns: repeat(1, 1fr);
@@ -176,7 +176,7 @@
     height: var(--max-inner-height);
     padding-left: 0;
 
-    @include abstracts.breakpoint(lg) {
+    @include abstracts.screen(lg) {
       grid-template-columns: 1fr;
     }
   }
