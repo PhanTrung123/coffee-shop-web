@@ -10,7 +10,7 @@
   }
 
   &__heading {
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     font-size: 2.4rem;
     font-weight: 700;
     line-height: 142%;
@@ -18,6 +18,7 @@
 
   &__cate {
     --grid-gutter-x: 51px;
+    margin-top: 10px;
 
     @include abstracts.screen(lg) {
       --grid-gutter-x: 24px;
@@ -26,5 +27,12 @@
     @include abstracts.screen(md) {
       --grid-gutter-y: 24px;
     }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
   }
 }
