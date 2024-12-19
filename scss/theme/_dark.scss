@@ -35,4 +35,12 @@ html.dark {
   @include abstracts.screen(md) {
     --cate-item-bg: #171c28;
   }
+
+  //button filter
+  --filter-btn-color: #fff;
+  --filter-btn-color-bg: #171c28;
+
+  //product-card
+  --product-card-color-bg: #171c28;
+  --prodct-card-shadow-color: rgba(0, 0, 0, 0.2);
 }

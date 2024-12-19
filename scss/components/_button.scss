@@ -19,4 +19,16 @@
   height: 50px;
   border-radius: 50%;
   box-shadow: 0px 20px 60px var(--favourite-btn-shadow);
+
+  &:not(&--liked) .favourite-btn__icon--liked {
+    display: none;
+  }
+
+  &--liked .favourite-btn__icon {
+    display: none;
+  }
+
+  &__icon--liked {
+    position: absolute;
+  }
 }
