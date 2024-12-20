@@ -27,7 +27,7 @@
       font-weight: 500;
       line-height: 146%;
 
-      &--smail {
+      &--small {
         margin-bottom: 10px;
         font-size: 1.4rem;
         line-height: 143%;
@@ -41,10 +41,11 @@
 
     &-group {
       margin-top: 20px;
-    }
 
-    &--inline {
-      display: flex;
+      &--inline {
+        display: flex;
+        gap: 30px;
+      }
     }
 
     &-slider {
@@ -75,20 +76,110 @@
       }
     }
 
-    &-input {
-      width: 121px;
-      height: 36px;
-      padding: 0 12px;
+    &-text-input,
+    &-select-wrap {
       border-radius: 6px;
-      font-size: 1.4rem;
       border: 1px solid #d2d1d6;
+    }
+
+    &-text-input {
+      display: flex;
+      align-items: center;
+      width: 334px;
+      height: 44px;
+      padding: 0 16px;
+      overflow: hidden;
+
+      &--small {
+        width: 121px;
+        height: 36px;
+        padding: 0 12px;
+      }
+    }
+
+    &-text-input--small &-input {
+      font-size: 1.4rem;
+    }
+
+    &-input {
+      width: 100%;
+      font-size: 1.5rem;
       font-weight: 500;
-      line-height: 143%;
+      line-height: 147%;
+
+      &::placeholder {
+        color: #9e9da8;
+        font-weight: 400;
+      }
+    }
+
+    &-input-icon {
+      margin-left: 12px;
+    }
+
+    &-select-wrap {
+      display: flex;
+      align-items: center;
+      height: 45px;
+    }
+
+    &-select {
+      height: calc(100% - 10px);
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+
+      &:first-child {
+        border-right: 1px solid #d2d1d6;
+      }
+
+      &-choose,
+      option {
+        font-weight: 500;
+        font-size: 1.4rem;
+        line-height: 143%;
+        border: 1px solid #d2d1d6;
+        cursor: pointer;
+      }
+
+      &-choose {
+        position: relative;
+        min-width: var(--width, 108px);
+        border: none;
+        margin: 0 14px;
+      }
+    }
+
+    &-tags {
+      flex-wrap: wrap;
+      display: flex;
+      gap: 10px 20px;
+    }
+
+    &-tag {
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: #9e9da8;
+      background: var(--filter-form-tag-bg);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #9e9dab;
+      transition: color 0.25s;
+
+      &:hover {
+        color: var(--text-color);
+      }
     }
   }
 
   &__row {
     display: flex;
-    flex: 1;
+  }
+
+  &__separate {
+    width: 1px;
+    height: 100%;
+    background: #eee;
+    margin: 0 30px;
   }
 }

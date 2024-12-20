@@ -187,28 +187,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const maxInput = document.querySelectorAll(".filter__form-input")[1];
 
   const sliderWidth = slider.offsetWidth;
-  let minValue = 10; // Giá trị phần trăm ban đầu của min
-  let maxValue = 60; // Giá trị phần trăm ban đầu của max
-  const minPrice = 0; // Giá trị nhỏ nhất
-  const maxPrice = 1000000; // Giá trị lớn nhất
-  const step = 5; // Bước tối thiểu giữa hai giá trị
+  let minValue = 10; // Initial percentage for min
+  let maxValue = 60; // Initial percentage for max
+  const minPrice = 0; // Minimum price
+  const maxPrice = 1000000; // Maximum price
+  const step = 5; // Minimum step between values
 
-  // Hàm làm tròn giá trị đến hàng nghìn
+  // Round value to the nearest thousand
   function roundToThousands(value) {
     return Math.round(value / 1000) * 1000;
   }
 
-  // Hàm cập nhật vị trí nút và giá trị input
+  // Update slider position and input values
   function updateSlider() {
     slider.style.setProperty("--min-value", `${minValue}%`);
     slider.style.setProperty("--max-value", `${100 - maxValue}%`);
+
     const minPriceValue = roundToThousands(minPrice + ((maxPrice - minPrice) * minValue) / 100);
     const maxPriceValue = roundToThousands(minPrice + ((maxPrice - minPrice) * maxValue) / 100);
+
     minInput.value = `${minPriceValue.toLocaleString()}đ`;
     maxInput.value = `${maxPriceValue.toLocaleString()}đ`;
   }
 
-  // Xử lý khi kéo nút trượt
+  // Handle slider dragging
   function handleDrag(e, type) {
     const rect = slider.getBoundingClientRect();
     const clickX = Math.min(Math.max(e.clientX - rect.left, 0), sliderWidth);
@@ -222,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSlider();
   }
 
-  // Xử lý khi nhấp vào thanh trượt
+  // Handle slider click
   slider.addEventListener("click", (e) => {
     const rect = slider.getBoundingClientRect();
     const clickX = Math.min(Math.max(e.clientX - rect.left, 0), sliderWidth);
@@ -236,16 +238,17 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSlider();
   });
 
-  // Xử lý khi kéo các nút
+  // Handle mouse down and dragging
   slider.addEventListener("mousedown", (e) => {
-    // Cải thiện khả năng nhận diện kéo các nút
     const rect = slider.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
-    const isBefore = clickX <= (minValue / 100) * sliderWidth + 20; // Phạm vi gần nút trước
-    const isAfter = clickX >= (maxValue / 100) * sliderWidth - 20; // Phạm vi gần nút sau
-    if (!isBefore && !isAfter) return;
+    const isNearMin = clickX <= (minValue / 100) * sliderWidth + 20;
+    const isNearMax = clickX >= (maxValue / 100) * sliderWidth - 20;
 
-    const type = isBefore ? "min" : "max";
+    if (!isNearMin && !isNearMax) return;
+
+    const type = isNearMin ? "min" : "max";
+
     function onMouseMove(event) {
       handleDrag(event, type);
     }
@@ -259,6 +262,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("mouseup", onMouseUp);
   });
 
-  // Khởi tạo giá trị ban đầu
+  // Initialize slider
   updateSlider();
 });
