@@ -154,9 +154,7 @@ function initJsToggle() {
     if (!target) {
       document.body.innerText = `Cần thêm toggle-target cho: ${button.outerHTML}`;
     }
-    button.onclick = (e) => {
-      e.preventDefault();
-
+    button.onclick = () => {
       if (!$(target)) {
         return (document.body.innerText = `Không tìm thấy phần tử "${target}"`);
       }
@@ -166,14 +164,6 @@ function initJsToggle() {
         $(target).classList.toggle("hide", !isHidden);
         $(target).classList.toggle("show", isHidden);
       });
-    };
-    document.onclick = function (e) {
-      if (!e.target.closest(target)) {
-        const isHidden = $(target).classList.contains("hide");
-        if (!isHidden) {
-          button.click();
-        }
-      }
     };
   });
 }
@@ -190,41 +180,85 @@ window.addEventListener("template-loaded", () => {
   });
 });
 
-window.addEventListener("template-loaded", () => {
-  const tabsSelector = "prod-tab__item";
-  const contentsSelector = "prod-tab__content";
+//-----Code chức năng Filter (bộ lọc tìm kiếm giá cả)-----//
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".filter__form-slider");
+  const minInput = document.querySelectorAll(".filter__form-input")[0];
+  const maxInput = document.querySelectorAll(".filter__form-input")[1];
 
-  const tabActive = `${tabsSelector}--current`;
-  const contentActive = `${contentsSelector}--current`;
+  const sliderWidth = slider.offsetWidth;
+  let minValue = 10; // Giá trị phần trăm ban đầu của min
+  let maxValue = 60; // Giá trị phần trăm ban đầu của max
+  const minPrice = 0; // Giá trị nhỏ nhất
+  const maxPrice = 1000000; // Giá trị lớn nhất
+  const step = 5; // Bước tối thiểu giữa hai giá trị
 
-  const tabContainers = $$(".js-tabs");
-  tabContainers.forEach((tabContainer) => {
-    const tabs = tabContainer.querySelectorAll(`.${tabsSelector}`);
-    const contents = tabContainer.querySelectorAll(`.${contentsSelector}`);
-    tabs.forEach((tab, index) => {
-      tab.onclick = () => {
-        tabContainer.querySelector(`.${tabActive}`)?.classList.remove(tabActive);
-        tabContainer.querySelector(`.${contentActive}`)?.classList.remove(contentActive);
-        tab.classList.add(tabActive);
-        contents[index].classList.add(contentActive);
-      };
-    });
-  });
-});
-
-window.addEventListener("template-loaded", () => {
-  const switchBtn = document.querySelector("#switch-theme-btn");
-  if (switchBtn) {
-    switchBtn.onclick = function () {
-      const isDark = localStorage.dark === "true";
-      document.querySelector("html").classList.toggle("dark", !isDark);
-      localStorage.setItem("dark", !isDark);
-      switchBtn.querySelector("span").textContent = isDark ? "Dark mode" : "Light mode";
-    };
-    const isDark = localStorage.dark === "true";
-    switchBtn.querySelector("span").textContent = isDark ? "Light mode" : "Dark mode";
+  // Hàm làm tròn giá trị đến hàng nghìn
+  function roundToThousands(value) {
+    return Math.round(value / 1000) * 1000;
   }
-});
 
-const isDark = localStorage.dark === "true";
-document.querySelector("html").classList.toggle("dark", isDark);
+  // Hàm cập nhật vị trí nút và giá trị input
+  function updateSlider() {
+    slider.style.setProperty("--min-value", `${minValue}%`);
+    slider.style.setProperty("--max-value", `${100 - maxValue}%`);
+    const minPriceValue = roundToThousands(minPrice + ((maxPrice - minPrice) * minValue) / 100);
+    const maxPriceValue = roundToThousands(minPrice + ((maxPrice - minPrice) * maxValue) / 100);
+    minInput.value = `${minPriceValue.toLocaleString()}đ`;
+    maxInput.value = `${maxPriceValue.toLocaleString()}đ`;
+  }
+
+  // Xử lý khi kéo nút trượt
+  function handleDrag(e, type) {
+    const rect = slider.getBoundingClientRect();
+    const clickX = Math.min(Math.max(e.clientX - rect.left, 0), sliderWidth);
+    const percent = (clickX / sliderWidth) * 100;
+
+    if (type === "min") {
+      minValue = Math.min(percent, maxValue - step);
+    } else if (type === "max") {
+      maxValue = Math.max(percent, minValue + step);
+    }
+    updateSlider();
+  }
+
+  // Xử lý khi nhấp vào thanh trượt
+  slider.addEventListener("click", (e) => {
+    const rect = slider.getBoundingClientRect();
+    const clickX = Math.min(Math.max(e.clientX - rect.left, 0), sliderWidth);
+    const percent = (clickX / sliderWidth) * 100;
+
+    if (Math.abs(percent - minValue) < Math.abs(percent - maxValue)) {
+      minValue = Math.min(percent, maxValue - step);
+    } else {
+      maxValue = Math.max(percent, minValue + step);
+    }
+    updateSlider();
+  });
+
+  // Xử lý khi kéo các nút
+  slider.addEventListener("mousedown", (e) => {
+    // Cải thiện khả năng nhận diện kéo các nút
+    const rect = slider.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const isBefore = clickX <= (minValue / 100) * sliderWidth + 20; // Phạm vi gần nút trước
+    const isAfter = clickX >= (maxValue / 100) * sliderWidth - 20; // Phạm vi gần nút sau
+    if (!isBefore && !isAfter) return;
+
+    const type = isBefore ? "min" : "max";
+    function onMouseMove(event) {
+      handleDrag(event, type);
+    }
+
+    function onMouseUp() {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+    }
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  });
+
+  // Khởi tạo giá trị ban đầu
+  updateSlider();
+});
