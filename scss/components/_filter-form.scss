@@ -1,3 +1,4 @@
+@use "../abstracts";
 .filter-wrap {
   position: relative;
   z-index: 1;
@@ -6,11 +7,37 @@
 .filter {
   position: absolute;
   right: 0;
-  top: 50px;
+  top: 55px;
   padding: 30px;
   border-radius: 20px;
   background: var(--filter-form-bg);
   filter: drop-shadow(0px 40px 90px var(--filter-form-shadow));
+  transition: opacity, visibility;
+  transition-duration: 0.2s;
+
+  @include abstracts.screen(xl) {
+    height: calc(100vh - 90px);
+    overflow-y: auto;
+    padding-bottom: 0;
+    overscroll-behavior: contain;
+  }
+
+  @include abstracts.screen(sm) {
+    height: calc(100vh - 150px);
+    width: 90vw;
+  }
+
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: -15px;
+    right: 45px;
+    filter: var(--filter-arrow-color);
+  }
 
   &__heading {
     font-size: 2.2rem;
@@ -23,7 +50,7 @@
 
     &-label {
       display: block;
-      font-size: 2.2em;
+      font-size: 2.2rem;
       font-weight: 500;
       line-height: 146%;
 
@@ -90,10 +117,18 @@
       padding: 0 16px;
       overflow: hidden;
 
+      @include abstracts.screen(sm) {
+        width: 100%;
+      }
+
       &--small {
         width: 121px;
         height: 36px;
         padding: 0 12px;
+
+        @include abstracts.screen(sm) {
+          width: 100%;
+        }
       }
     }
 
@@ -129,6 +164,10 @@
       display: flex;
       align-items: center;
 
+      @include abstracts.screen(sm) {
+        width: 100%;
+      }
+
       &:first-child {
         border-right: 1px solid #d2d1d6;
       }
@@ -147,6 +186,14 @@
         min-width: var(--width, 108px);
         border: none;
         margin: 0 14px;
+
+        option {
+          background: var(--filter-form-option-bg);
+        }
+
+        @include abstracts.screen(sm) {
+          min-width: var(--width, 78%);
+        }
       }
     }
 
@@ -181,5 +228,49 @@
     height: 100%;
     background: #eee;
     margin: 0 30px;
+
+    @include abstracts.screen(xl) {
+      width: 100%;
+      height: 1px;
+      width: initial;
+      margin: 30px 0;
+    }
+  }
+
+  &__footer {
+    margin-top: 32px;
+    display: flex;
+    justify-content: flex-end;
+
+    @include abstracts.screen(xl) {
+      position: sticky;
+      bottom: 0;
+      background: var(--filter-form-bg);
+      padding: 18px 0;
+    }
+  }
+
+  &__cancel,
+  &__submit {
+    height: 38px;
+    padding: 0 10px;
+
+    @include abstracts.screen(sm) {
+      flex: 1;
+    }
+  }
+
+  &__cancel {
+    font-size: 1.5rem;
+  }
+
+  &__submit {
+    font-size: 1.4rem;
+  }
+
+  &__content {
+    @include abstracts.screen(xl) {
+      flex-direction: column;
+    }
   }
 }

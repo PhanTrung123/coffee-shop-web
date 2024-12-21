@@ -105,15 +105,16 @@
         <div class="home__row">
           <h2 class="home__heading">Discover the Perfect Cup of Coffee</h2>
           <div class="filter-wrap">
-            <button class="filter-btn">
+            <button class="filter-btn js-toggle" toggle-target="#home-filter">
               Filter
               <img src="./assets/icons/filter.svg" alt="" class="icon filter-btn__icon" />
             </button>
 
-            <div class="filter">
+            <div id="home-filter" class="filter hide">
+              <img src="./assets/icons/dropdown.svg" alt="" class="filter__arrow" />
               <h3 class="filter__heading">Filter</h3>
               <form action="" class="filter__form">
-                <div class="filter__row">
+                <div class="filter__row filter__content">
                   <!-- Filter column 1 -->
                   <div class="filter__col">
                     <label for="" class="filter__form-label">Price</label>
@@ -155,6 +156,7 @@
                           <select name="weight" class="filter__form-select-choose" id="">
                             <option value="" disabled selected>-- Style</option>
                             <option value="gram">Gram</option>
+                            <option value="gram">Kg</option>
                             <option value="pound">Pound</option>
                           </select>
                         </div>
@@ -195,6 +197,11 @@
                       </div>
                     </div>
                   </div>
+                </div>
+
+                <div class="filter__row filter__footer">
+                  <button class="btn btn--text filter__cancel js-toggle" toggle-target="#home-filter">Cancel</button>
+                  <button class="btn btn--primary filter__submit">Show Result</button>
                 </div>
               </form>
             </div>
