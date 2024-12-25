@@ -1,52 +1,53 @@
+@use "../abstracts";
 .footer {
-  margin-top: 60px;
-  padding: 60px 0;
+  padding: 50px 0;
+  margin-top: 50px;
   background: var(--footer-bg-color);
 
   &__inner {
-    justify-content: space-around;
   }
 
-  &__col {
-    &-logo {
-    }
+  &__row {
+    display: grid;
+    grid-template-columns: 1.6fr 1.2fr 1.2fr 1.2fr 1.4fr;
+    gap: 50px;
 
-    &-item {
-      padding: 8px 0;
-      font-size: 1.6rem;
-      font-weight: 500;
-      line-height: 150%;
-      text-transform: capitalize;
-    }
-
-    &-socials {
-    }
-
-    &-social-list {
-      display: flex;
-      gap: 10px;
+    @include abstracts.screen(xl) {
+      grid-template-columns: 1fr;
     }
   }
 
   &__heading {
-    font-size: 2.2rem;
-    font-weight: 700;
-    line-height: 142%;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1.8rem;
+    line-height: 147%;
   }
 
-  &__list,
-  &__heading-desc {
-    margin: 30px 0 20px 0;
+  &__text {
+    @include abstracts.screen(lg) {
+      width: min(400px, 100%);
+    }
   }
 
-  &__heading-desc {
-    font-size: 1.4rem;
-    line-height: 150%;
+  &__desc {
+    margin-top: 30px;
+
+    &-help {
+      margin-top: 30px;
+      font-size: 1.4rem;
+      line-height: 147%;
+      font-weight: 600;
+    }
+  }
+
+  &__list {
+    margin-top: 20px;
   }
 
   &__link {
     display: inline-block;
-    padding: 8px 0;
+    font-weight: 400;
 
     &:hover {
       color: #0071dc;
@@ -54,40 +55,131 @@
     }
   }
 
-  &__form-group {
-    position: relative;
+  &__link,
+  &__text,
+  &__desc {
+    padding: 8px 0;
+    line-height: 143%;
+    font-size: 1.4rem;
   }
 
-  &__form-text-input {
+  &__text,
+  &__copyright {
+    color: var(--footer-text-color);
+  }
+
+  &__label {
+    font-weight: 500;
+    margin-top: 15px;
+  }
+
+  &__form {
     display: flex;
-    gap: 15px;
+    gap: 10px;
+    padding: 16px 0;
+
+    @include abstracts.screen(xl) {
+      flex-direction: row;
+    }
+
+    @include abstracts.screen(sm) {
+      flex-direction: column;
+    }
   }
 
-  &__form-input {
-    border-radius: 999px;
-    width: 70%;
-    height: 46px;
-    padding: 0 16px;
-    border: 1px solid #d2d1d6;
+  &__input {
+    border-radius: 6px;
+    padding: 8px 16px;
+    width: 100%;
+
+    border: 2px solid #d2d1d6;
+    font-size: 1.4rem;
 
     &::placeholder {
       color: #9e9da8;
       font-weight: 400;
     }
+
+    @include abstracts.screen(sm) {
+      flex: 1;
+    }
   }
 
-  &__form--search {
-    width: 40%;
-    font-size: 1.4rem;
+  &__bottom {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+    align-items: center;
+
+    @include abstracts.screen(lg) {
+      flex-direction: column;
+    }
   }
 
-  &__form-input-icon {
-    position: absolute;
-    right: 45%;
-    top: 50%;
-    transform: translateY(-50%);
+  &__socials {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 20px;
+
+    @include abstracts.screen(lg) {
+      order: 1;
+    }
+  }
+
+  &__social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 18px;
+
+    transition: translate;
+    transition-duration: 0.3s;
+
+    &--fb,
+    &--instagram,
+    &--tiktok,
+    &--youtube {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--fb {
+      background: #425e9b;
+    }
+
+    &--instagram {
+      background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    }
+
+    &--tiktok {
+      background: #000;
+    }
+
+    &--youtube {
+      background: #c4202b;
+    }
+
+    &:hover {
+      translate: 0 -5px;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+  }
+
+  &__social-icon {
+    width: 25px;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(69deg) brightness(115%)
+      contrast(100%);
+  }
+
+  &__copyright {
+    font-size: 1.4rem;
+
+    @include abstracts.screen(lg) {
+      order: 2;
+      padding-top: 30px;
+    }
   }
 }
