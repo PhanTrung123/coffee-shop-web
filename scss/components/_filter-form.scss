@@ -141,7 +141,7 @@
       }
 
       @include abstracts.screen(sm) {
-        font-size: 1.6rem;
+        font-size: 1.6rem !important;
       }
     }
 
@@ -245,7 +245,6 @@
     justify-content: flex-end;
 
     @include abstracts.screen(sm) {
-      position: sticky;
       bottom: 30px;
       background: var(--filter-form-bg);
     }

@@ -2,6 +2,7 @@
 .footer {
   padding: 50px 0;
   margin-top: 50px;
+  font-size: 1.4rem;
   background: var(--footer-bg-color);
 
   &__inner {
@@ -35,7 +36,7 @@
 
     &-help {
       margin-top: 30px;
-      font-size: 1.4rem;
+
       line-height: 147%;
       font-weight: 600;
     }
@@ -60,7 +61,6 @@
   &__desc {
     padding: 8px 0;
     line-height: 143%;
-    font-size: 1.4rem;
   }
 
   &__text,
@@ -91,9 +91,8 @@
     border-radius: 6px;
     padding: 8px 16px;
     width: 100%;
-
+    font-size: 1.5rem;
     border: 2px solid #d2d1d6;
-    font-size: 1.4rem;
 
     &::placeholder {
       color: #9e9da8;
@@ -102,6 +101,7 @@
 
     @include abstracts.screen(sm) {
       flex: 1;
+      font-size: 1.6rem;
     }
   }
 
@@ -175,8 +175,6 @@
   }
 
   &__copyright {
-    font-size: 1.4rem;
-
     @include abstracts.screen(lg) {
       order: 2;
       padding-top: 30px;
