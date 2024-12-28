@@ -1,3 +1,4 @@
+<!-- FORM ĐĂNG NHẬP -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,6 +22,77 @@
     <script src="./assets/js/scripts.js"></script>
   </head>
   <body>
-    <h1>Sign Up</h1>
+    <!-- auth: xác thực -->
+    <main class="auth">
+      <div class="auth__intro">
+        <img
+          src="./assets/img/sigIn-signUp/sign-up.svg"
+          alt=""
+          class="auth__intro-img"
+          style="width: auto; height: 500px; object-fit: contain"
+        />
+        <p class="auth__intro-text">Join us now and become part of the Cups & Pups family</p>
+      </div>
+      <div class="auth__content">
+        <div class="auth__content-inner">
+          <!-- Logo -->
+          <a href="./" class="logo">
+            <img src="./assets/img/logo-cafe02.jpg" alt="Coffee Shop" class="logo__img" />
+            <h1 class="logo__title">Cups & Pups .</h1>
+          </a>
+          <h1 class="auth__heading">Sign Up</h1>
+          <p class="auth__desc">
+            Sign up to get exclusive offers, updates on promotions, and a seamless shopping experience. Fill in your
+            details below, and we’ll ensure you enjoy our best services. 💖☕
+          </p>
+          <form action="" class="form auth__form">
+            <div class="form__group">
+              <div class="form__text-input">
+                <input type="text" name="" placeholder="Username" id="" class="form__input" />
+                <img src="./assets/icons/user.svg" alt="" class="form__input-icon" />
+              </div>
+            </div>
+            <div class="form__group">
+              <div class="form__text-input">
+                <input type="email" name="" placeholder="Email" id="" class="form__input" />
+                <img src="./assets/icons/mail.svg" alt="" class="form__input-icon" />
+              </div>
+            </div>
+            <div class="form__group">
+              <div class="form__text-input">
+                <input type="password" name="" placeholder="Password" id="" class="form__input" />
+                <img src="./assets/icons/lock.svg" alt="" class="form__input-icon" />
+              </div>
+            </div>
+            <div class="form__group">
+              <div class="form__text-input">
+                <input type="password" name="" placeholder="Confirm password" id="" class="form__input" />
+                <img src="./assets/icons/lock.svg" alt="" class="form__input-icon" />
+              </div>
+            </div>
+            <div class="form__group form__group--inline">
+              <label class="form__checkbox">
+                <input type="checkbox" name="" id="" class="form__checkbox-input" />
+                <span class="form__checkbox-label">Remember me</span>
+              </label>
+              <a href="" class="auth__link form__pull-right">Forgot Password?</a>
+            </div>
+            <div class="form__group auth__btn-group">
+              <button class="btn btn--primary auth__btn">Sign Up</button>
+              <p class="auth__intro-text-choose">Or</p>
+              <button class="btn btn--outline auth__btn btn--no-margin">
+                <img src="./assets/icons/google.svg" alt="" class="btn__icon" />
+                Sign in with Google
+              </button>
+            </div>
+          </form>
+
+          <p class="auth__text">
+            Do you already have an account?
+            <a href="./sign-in.html" class="auth__link">Sign In</a>
+          </p>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

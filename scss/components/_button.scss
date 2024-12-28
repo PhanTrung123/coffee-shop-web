@@ -1,3 +1,4 @@
+@use "../abstracts";
 .filter-btn {
   display: flex;
   align-items: center;
@@ -37,6 +38,8 @@
 .btn {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 10px;
   user-select: none;
   background: #f8f8fb;
   padding: 0 20px;
@@ -46,7 +49,9 @@
   font-weight: 500;
 
   + .btn {
-    margin-left: 20px;
+    &:not(.btn--no-margin) {
+      margin-left: 20px;
+    }
   }
 
   &--text {
