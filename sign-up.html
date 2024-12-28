@@ -24,17 +24,32 @@
   <body>
     <!-- auth: xác thực -->
     <main class="auth">
-      <div class="auth__intro">
+      <!-- Auth intro: phần giới thiệu -->
+      <div id="auth-intro" class="auth__intro">
+        <a href="./" class="logo auth__intro-logo d-none d-md-block d-md-flex">
+          <img src="./assets/img/logo-cafe02.jpg" alt="Coffee Shop" class="logo__img" />
+          <h1 class="logo__title">Cups & Pups .</h1>
+        </a>
         <img
           src="./assets/img/sigIn-signUp/sign-up.svg"
           alt=""
           class="auth__intro-img"
-          style="width: auto; height: 500px; object-fit: contain"
+          style="width: auto; height: 500px; object-fit: cover"
         />
         <p class="auth__intro-text">Join us now and become part of the Cups & Pups family</p>
+        <button class="auth__intro-page d-none d-md-block d-md-flex js-toggle" toggle-target="#auth-content">
+          <img src="./assets/icons/intro-auth/period.svg" alt="" class="auth__intro-page-now" />
+          <img src="./assets/icons/intro-auth/period.svg" alt="" class="auth__intro-page-then" />
+          <img src="./assets/icons/intro-auth/next-page.svg" alt="" />
+        </button>
       </div>
-      <div class="auth__content">
+
+      <!-- Auth content: form đăng ký -->
+      <div id="auth-content" class="auth__content hide">
         <div class="auth__content-inner">
+          <!-- <button class="auth__content-leave d-none d-md-block d-md-flex js-toggle" toggle-target="#auth-intro">
+            <img src="./assets/icons/intro-auth/leave-page.svg" alt="" />
+          </button> -->
           <!-- Logo -->
           <a href="./" class="logo">
             <img src="./assets/img/logo-cafe02.jpg" alt="Coffee Shop" class="logo__img" />
@@ -45,28 +60,44 @@
             Sign up to get exclusive offers, updates on promotions, and a seamless shopping experience. Fill in your
             details below, and we’ll ensure you enjoy our best services. 💖☕
           </p>
-          <form action="" class="form auth__form">
+          <form action="./index-logined.html" class="form auth__form">
             <div class="form__group">
               <div class="form__text-input">
-                <input type="text" name="" placeholder="Username" id="" class="form__input" />
+                <input type="text" name="" placeholder="Username" id="" class="form__input" required />
                 <img src="./assets/icons/user.svg" alt="" class="form__input-icon" />
               </div>
             </div>
             <div class="form__group">
               <div class="form__text-input">
-                <input type="email" name="" placeholder="Email" id="" class="form__input" />
+                <input type="email" name="" placeholder="Email" id="" class="form__input" required />
                 <img src="./assets/icons/mail.svg" alt="" class="form__input-icon" />
               </div>
             </div>
             <div class="form__group">
               <div class="form__text-input">
-                <input type="password" name="" placeholder="Password" id="" class="form__input" />
+                <input
+                  type="password"
+                  name=""
+                  placeholder="Password"
+                  id=""
+                  class="form__input"
+                  required
+                  minlength="6"
+                />
                 <img src="./assets/icons/lock.svg" alt="" class="form__input-icon" />
               </div>
             </div>
             <div class="form__group">
               <div class="form__text-input">
-                <input type="password" name="" placeholder="Confirm password" id="" class="form__input" />
+                <input
+                  type="password"
+                  name=""
+                  placeholder="Confirm password"
+                  id=""
+                  class="form__input"
+                  required
+                  minlength="6"
+                />
                 <img src="./assets/icons/lock.svg" alt="" class="form__input-icon" />
               </div>
             </div>
@@ -94,5 +125,8 @@
         </div>
       </div>
     </main>
+    <script>
+      window.dispatchEvent(new Event("template-loaded"));
+    </script>
   </body>
 </html>

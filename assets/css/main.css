@@ -2673,6 +2673,17 @@ html {
   justify-content: center;
   gap: 40px;
 }
+.auth__intro-logo, .auth__intro-page {
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+}
+.auth__intro-img {
+  max-width: 100%;
+}
+.auth__intro-logo {
+  top: 15%;
+}
 .auth__intro-text {
   text-align: center;
   max-width: 412px;
@@ -2680,8 +2691,27 @@ html {
   font-weight: 500;
   line-height: 145%;
 }
+.auth__intro-page {
+  bottom: 20%;
+  filter: brightness(0) saturate(100%) invert(68%) sepia(8%) saturate(283%) hue-rotate(206deg) brightness(93%) contrast(85%);
+}
+.auth__intro-page-then {
+  opacity: 0.5;
+}
 .auth__content {
   background: var(--auth-color-content-bg);
+}
+@media (max-width: calc(768px - 0.02px)) {
+  .auth__content {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    transition: translate 0.3s;
+    overflow-y: auto;
+  }
+  .auth__content.hide {
+    transition: 100%;
+  }
 }
 .auth__content-inner {
   display: flex;
