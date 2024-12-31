@@ -4,6 +4,10 @@
   display: flex;
   min-height: 100vh;
 
+  @supports (-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available;
+  }
+
   &__intro,
   &__content {
     flex: 1;
@@ -11,6 +15,7 @@
   }
 
   &__intro {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,6 +43,10 @@
       font-size: 1.8rem;
       font-weight: 500;
       line-height: 145%;
+
+      @include abstracts.screen(md) {
+        font-size: 1.5rem;
+      }
     }
 
     &-page {
@@ -82,6 +91,10 @@
     font-size: 3rem;
     font-weight: 500;
     line-height: 147%;
+
+    @include abstracts.screen(md) {
+      font-size: 2.4rem;
+    }
   }
 
   &__desc {
@@ -91,11 +104,19 @@
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 147%;
+
+    @include abstracts.screen(md) {
+      font-size: 1.6rem;
+    }
   }
 
   &__form {
     margin-top: 30px;
     width: 100%;
+
+    @include abstracts.screen(md) {
+      margin-top: 0;
+    }
   }
 
   &__link {
@@ -103,6 +124,10 @@
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 147%;
+
+    @include abstracts.screen(md) {
+      font-size: 1.4rem;
+    }
   }
 
   &__intro-text-choose {
@@ -129,5 +154,13 @@
     margin-top: 100px;
     font-size: 1.8rem;
     line-height: 145%;
+
+    &-link {
+      font-size: inherit;
+    }
+
+    @include abstracts.screen(md) {
+      font-size: 1.6rem;
+    }
   }
 }

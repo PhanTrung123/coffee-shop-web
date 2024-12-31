@@ -1,4 +1,8 @@
+@use "../abstracts";
+$error-color: #ed4337;
+
 .form {
+  // Nếu bên trong form có bất kỳ input không hợp lệ (:invalid), thì nút submit (&__submit-btn) sẽ mờ đi và không thể nhấn được.
   &:has(:invalid) &__submit-btn {
     opacity: 0.5;
     pointer-events: none;
@@ -15,8 +19,8 @@
 
   &__group:has(:invalid):has(&__input:not(:placeholder-shown)) {
     .form__text-input {
-      border-color: #ff0000;
-      background: rgba(#ff0000, $alpha: 0.1);
+      border-color: $error-color;
+      background: rgba($error-color, $alpha: 0.1);
     }
 
     .form__error,
@@ -41,6 +45,10 @@
     &:focus-within {
       border-color: #1662d3;
     }
+
+    @include abstracts.screen(md) {
+      height: 48px;
+    }
   }
 
   &__error {
@@ -54,8 +62,8 @@
   &__input-icon-warning {
     display: none;
     margin-left: 12px;
-    filter: brightness(0) saturate(100%) invert(15%) sepia(94%) saturate(5581%) hue-rotate(3deg) brightness(100%)
-      contrast(123%);
+    filter: brightness(0) saturate(100%) invert(25%) sepia(50%) saturate(3180%) hue-rotate(344deg) brightness(118%)
+      contrast(86%);
     animation: shake 0.5s;
   }
 
@@ -65,6 +73,10 @@
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 145%;
+
+    @include abstracts.screen(md) {
+      font-size: 1.6rem;
+    }
   }
 
   &__input-icon {
@@ -85,9 +97,13 @@
 
     &-label {
       color: #9e9da8;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 500;
       line-height: 147%;
+
+      @include abstracts.screen(md) {
+        font-size: 1.4rem;
+      }
     }
 
     &::before {
@@ -110,8 +126,6 @@
       border: 2.5px solid #fff;
       border-width: 0 2.5px 2.5px 0;
       transform: rotate(45deg) scale(0);
-      transform-origin: center;
-      transition: transform ease;
     }
 
     &:has(:checked) {
