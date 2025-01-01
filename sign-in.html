@@ -1,10 +1,10 @@
 <!-- FORM ĐĂNG NHẬP -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign up | Coffee Shop</title>
+    <title>Sign In | Coffee Shop</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
@@ -25,28 +25,19 @@
     <!-- auth: xác thực -->
     <main class="auth">
       <!-- Auth Intro -->
-      <div id="auth-intro" class="auth__intro">
-        <a href="./" class="logo auth__intro-logo d-none d-md-flex">
-          <img src="./assets/img/logo-cafe02.jpg" alt="" class="logo__img" />
-          <h1 class="logo__title">Cups & Pups</h1>
-        </a>
-        <img src="./assets/img/sigIn-signUp/sign-up.svg" alt="Join us" class="auth__intro-img" />
+      <div class="auth__intro d-md-none">
+        <img src="./assets/img/sigIn-signUp/sign-in.svg" alt="Join us" class="auth__intro-img" />
         <p class="auth__intro-text">Join us now and become part of the Cups & Pups family!</p>
-        <button class="auth__intro-next d-none d-md-flex js-toggle" toggle-target="#auth-content">
-          <img src="./assets/icons/intro-auth/period.svg" alt="Now" class="auth__intro-page-now" />
-          <img src="./assets/icons/intro-auth/period.svg" alt="Then" class="auth__intro-page-then" />
-          <img src="./assets/icons/intro-auth/next-page.svg" alt="Next Page" />
-        </button>
       </div>
 
       <!-- Auth Content -->
-      <div id="auth-content" class="auth__content hide">
+      <div class="auth__content">
         <div class="auth__content-inner">
           <a href="./" class="logo">
             <img src="./assets/img/logo-cafe02.jpg" alt="Cups & Pups Logo" class="logo__img" />
             <h1 class="logo__title">Cups & Pups</h1>
           </a>
-          <h1 class="auth__heading">Sign In</h1>
+          <h1 class="auth__heading">Welcome Back</h1>
           <p class="auth__desc">
             Log in to your Cups and Pups account to enjoy personalized coffee recommendations, track your orders, and
             stay updated on the latest offers and events.
@@ -83,23 +74,6 @@
               <div class="form__error">The password must be at least 6 characters long</div>
             </div>
 
-            <div class="form__group">
-              <div class="form__text-input">
-                <input
-                  type="password"
-                  id="confirm-password"
-                  name="confirm-password"
-                  placeholder="Confirm Password"
-                  class="form__input"
-                  required
-                  minlength="6"
-                />
-                <img src="./assets/icons/lock.svg" alt="Lock Icon" class="form__input-icon" />
-                <img src="./assets/icons/intro-auth/warning.svg" alt="" class="form__input-icon-warning" />
-              </div>
-              <div class="form__error">The passwords entered do not match</div>
-            </div>
-
             <div class="form__group form__group--inline">
               <label class="form__checkbox">
                 <input type="checkbox" name="remember-me" id="remember-me" class="form__checkbox-input d-none" />
@@ -111,8 +85,8 @@
             <div class="form__group auth__btn-group">
               <button type="submit" class="btn btn--primary auth__btn form__submit-btn">Sign In</button>
               <p class="auth__intro-text-choose">Or</p>
-              <button type="button" class="btn btn--outline auth__btn">
-                <img src="./assets/icons/google.svg" alt="Google Icon" class="btn__icon" />
+              <button type="button" class="btn btn--outline auth__btn auth__btn-dark">
+                <img src="./assets/icons/google.svg" alt="Google Icon" class="icon btn__icon" />
                 Sign in with Google
               </button>
             </div>

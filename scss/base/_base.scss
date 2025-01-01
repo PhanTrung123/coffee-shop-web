@@ -16,6 +16,13 @@ body {
   background: var(--body-background);
 }
 
+@media (prefers-color-scheme: dark) {
+  img {
+    fill: inherit;
+    stroke: inherit;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;

@@ -21,6 +21,11 @@
     align-items: center;
     justify-content: center;
     gap: 40px;
+    background: var(--auth-intro-bg);
+
+    &-next {
+      gap: 10px;
+    }
 
     &-logo,
     &-page {
@@ -34,7 +39,7 @@
     }
 
     &-logo {
-      top: 15%;
+      top: 10%;
     }
 
     &-text {
@@ -43,7 +48,7 @@
       font-size: 1.8rem;
       font-weight: 500;
       line-height: 145%;
-
+      color: var(--auth-intro-text-color);
       @include abstracts.screen(md) {
         font-size: 1.5rem;
       }
@@ -56,6 +61,11 @@
 
       &-then {
         opacity: 0.5;
+      }
+
+      &-now,
+      &-then {
+        filter: var(--auth-color-list-page);
       }
     }
   }
@@ -71,7 +81,7 @@
       overflow-y: auto;
 
       &.hide {
-        transition: 100%;
+        translate: 100%;
       }
     }
 
@@ -83,6 +93,10 @@
       width: min(460px, 100%);
       margin: 0 auto;
       padding: 50px 0;
+
+      @include abstracts.screen(md) {
+        padding: 32px 0;
+      }
     }
   }
 
@@ -91,8 +105,10 @@
     font-size: 3rem;
     font-weight: 500;
     line-height: 147%;
+    color: var(--auth-intro-text-color);
 
     @include abstracts.screen(md) {
+      margin-top: 40px;
       font-size: 2.4rem;
     }
   }
@@ -137,16 +153,26 @@
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 145%;
+    color: var(--auth-intro-text-color);
   }
 
   &__btn-group {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
+
+    @include abstracts.screen(md) {
+      margin-top: 40px;
+      gap: 10px;
+    }
   }
 
   &__btn {
     width: 100%;
+
+    &-dark {
+      background: var(--auth-color-btn-google);
+    }
   }
 
   &__text {
@@ -154,6 +180,10 @@
     margin-top: 100px;
     font-size: 1.8rem;
     line-height: 145%;
+
+    @include abstracts.screen(md) {
+      margin-top: 60px;
+    }
 
     &-link {
       font-size: inherit;

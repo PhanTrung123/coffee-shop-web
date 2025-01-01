@@ -56,4 +56,17 @@ html.dark {
   //Footer
   --footer-bg-color: #171c28;
   --footer-text-color: #bcbac6;
+
+  //Auth
+  --auth-intro-bg: #171c28;
+  --auth-color-content-bg: #292e39;
+  --auth-intro-text-color: #b9babe;
+  --form-input-placeholder-color: #d2d1d6;
+  --auth-color-btn-google: transparent;
+  --auth-color-list-page: brightness(0) saturate(100%) invert(50%) sepia(0%) saturate(7434%) hue-rotate(284deg)
+    brightness(131%) contrast(86%);
+
+  @include abstracts.screen(md) {
+    --auth-intro-bg: #171c28;
+  }
 }
