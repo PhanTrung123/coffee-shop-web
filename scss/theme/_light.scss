@@ -59,4 +59,9 @@ html {
   @include abstracts.screen(md) {
     --auth-intro-bg: #fff;
   }
+
+  //product-details
+  --product-details-bg: #fff;
+  --breadcrumb-bg-color: #f6f6f6;
+  --breadcrumb-shadow: rgba(237, 237, 246, 0.2);
 }

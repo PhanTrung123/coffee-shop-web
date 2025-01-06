@@ -69,4 +69,9 @@ html.dark {
   @include abstracts.screen(md) {
     --auth-intro-bg: #171c28;
   }
+
+  //product-details
+  --product-details-bg: #292e39;
+  --breadcrumb-bg-color: #171c28;
+  --breadcrumb-shadow: rgba(23, 28, 40, 0.2);
 }

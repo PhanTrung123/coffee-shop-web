@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Coffee Shop</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- JS code -->
+    <script src="./assets/js/scripts.js"></script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="header" class="header"></header>
+    <script>
+      load("#header", "./templates/header-logined.html");
+    </script>
+
+    <!-- MAIN -->
+    <main class="product-page">
+      <div class="container">
+        <div class="product-container">
+          <!-- Breadcrumbs -->
+          <ul class="breadcrumb">
+            <li class="breadcrumb__item">
+              <a href="#!" class="breadcrumb__link"
+                >Deparments
+                <img src="./assets/icons/arrow-right.svg" alt="" />
+              </a>
+            </li>
+            <li class="breadcrumb__item">
+              <a href="#!" class="breadcrumb__link"
+                >Coffee
+                <img src="./assets/icons/arrow-right.svg" alt="" />
+              </a>
+            </li>
+            <li class="breadcrumb__item">
+              <a href="#!" class="breadcrumb__link"
+                >Coffee Bean
+                <img src="./assets/icons/arrow-right.svg" alt="" />
+              </a>
+            </li>
+            <li class="breadcrumb__item">
+              <a href="#!" class="breadcrumb__link breadcrumb__link--current">LavAzza </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <!-- FOOTER -->
+    <footer id="footer" class="footer"></footer>
+    <script>
+      load("#footer", "./templates/footer.html");
+    </script>
+  </body>
+</html>
