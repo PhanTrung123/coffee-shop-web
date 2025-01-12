@@ -63,6 +63,7 @@ html {
   //product-details
   --product-details-bg: #fff;
   --product-detail-info-bg: #f6f6f6;
+  --form-tag-bg: #ededf6;
   @include abstracts.screen(md) {
     --product-details-bg: #fafafa;
     --product-detail-info-bg: #fff;
@@ -72,4 +73,7 @@ html {
     --breadcrumb-bg-color: #fff;
   }
   --breadcrumb-shadow: rgba(237, 237, 246, 0.2);
+
+  //search bag
+  --search-bar-bg: #fff;
 }

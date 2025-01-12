@@ -74,4 +74,15 @@ html.dark {
   --product-details-bg: #292e39;
   --breadcrumb-bg-color: #171c28;
   --breadcrumb-shadow: rgba(23, 28, 40, 0.2);
+  --form-tag-bg: #292e39;
+
+  --product-detail-info-bg: #171c28;
+  @include abstracts.screen(md) {
+    --product-details-bg: #292e39;
+    --product-detail-info-bg: #171c28;
+  }
+
+  //search bag
+  --search-bar-background-bg: #171c28;
+  --search-bar-bg: #292e39;
 }
