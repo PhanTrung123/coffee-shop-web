@@ -62,6 +62,14 @@ html {
 
   //product-details
   --product-details-bg: #fff;
+  --product-detail-info-bg: #f6f6f6;
+  @include abstracts.screen(md) {
+    --product-details-bg: #fafafa;
+    --product-detail-info-bg: #fff;
+  }
   --breadcrumb-bg-color: #f6f6f6;
+  @include abstracts.screen(md) {
+    --breadcrumb-bg-color: #fff;
+  }
   --breadcrumb-shadow: rgba(237, 237, 246, 0.2);
 }

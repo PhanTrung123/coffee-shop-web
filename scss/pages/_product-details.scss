@@ -1,5 +1,7 @@
+@use "../abstracts";
 .product-page {
   display: flex;
+  padding-bottom: 50px;
   flex-direction: column;
   min-height: 80vh;
   background: var(--product-details-bg);
@@ -9,11 +11,24 @@
   margin-top: 30px;
 }
 
+.product-container-content {
+  border-radius: 20px;
+}
+
 .product-review {
   padding: 0 30px;
+
+  @include abstracts.screen(md) {
+    padding: 16px;
+  }
+
   &__list {
     display: flex;
     overflow: hidden;
+
+    @include abstracts.screen(lg) {
+      flex: 1;
+    }
   }
 
   &__item {
@@ -39,13 +54,16 @@
     gap: 20px;
     padding: 30px;
     cursor: pointer;
+
+    @include abstracts.screen(md) {
+      display: none;
+    }
   }
 
   &__thumb-img {
     width: 80px;
     height: 80px;
     object-fit: contain;
-    padding: 30px;
     border: 1.5px solid #9e9da8;
     border-radius: 8px;
     transition: transform 0.3s;
@@ -68,15 +86,75 @@
 
 .product-info {
   padding: 60px;
+  background: var(--product-detail-info-bg);
+
+  @include abstracts.screen(xxl) {
+    padding: 40px;
+  }
+
+  @include abstracts.screen(lg) {
+    margin-top: 30px;
+  }
+
+  @include abstracts.screen(md) {
+    border-radius: 20px;
+    padding: 0 16px 16px;
+  }
 
   &__heading {
     font-size: 2.6rem;
     font-weight: 500;
     line-height: 143%;
+
+    @include abstracts.screen(md) {
+      font-size: 2.2rem;
+    }
   }
 
   &__label {
     margin-top: 30px;
+  }
+
+  &__card {
+    border-radius: 6px;
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+
+  &__price {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 150%;
+  }
+
+  &__tax {
+    padding: 2px 8px;
+    background: hsl(101, 80%, 85%);
+    color: #67b044;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 143%;
+  }
+
+  &__total-price {
+    margin: 20px 0;
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 145%;
+  }
+
+  &__add-to-cart {
+    display: flex;
+    flex: 1;
+  }
+
+  &__like-btn {
+    height: 46px;
+    border-radius: 6px;
+    border: 1px solid #d2d1d6;
+    margin-left: 20px;
+    background: transparent;
   }
 }
 
@@ -85,6 +163,10 @@
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 145%;
+
+    @include abstracts.screen(lg) {
+      font-size: 1.6rem;
+    }
   }
 }
 
@@ -97,10 +179,22 @@
   &__icon {
     align-items: flex-start;
   }
+
+  @include abstracts.screen(md) {
+    margin-top: 16px;
+  }
 }
 
 .product-props {
   margin-left: 30px;
+
+  @include abstracts.screen(xxl) {
+    margin-left: 10px;
+  }
+
+  @include abstracts.screen(lg) {
+    margin: 0;
+  }
 }
 
 .product-prop {
