@@ -205,6 +205,13 @@ button:active {
   opacity: 0.7;
 }
 
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp, 4);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .row > *, .container-fluid, .container {
   padding-left: calc(var(--grid-gutter-x) * 0.5);
   padding-right: calc(var(--grid-gutter-x) * 0.5);
@@ -1448,6 +1455,7 @@ html {
   --breadcrumb-bg-color: #f6f6f6;
   --breadcrumb-shadow: rgba(237, 237, 246, 0.2);
   --search-bar-bg: #fff;
+  --review-card-bg: #f6f6f6;
 }
 @media (max-width: calc(992px - 0.02px)) {
   html {
@@ -2870,6 +2878,46 @@ html {
   margin-right: 15px;
 }
 
+.review-card {
+  height: 100%;
+  padding: 30px;
+  border-radius: 16px;
+  background: var(--review-card-bg);
+}
+.review-card__content {
+  display: flex;
+  gap: 20px;
+}
+.review-card__img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.review-card__title {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 145%;
+}
+.review-card__desc {
+  margin-top: 10px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+.review-card__rating {
+  margin-top: 20px;
+  gap: 6px;
+  display: flex;
+  align-items: center;
+}
+.review-card__rating--title {
+  margin-left: auto;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 144%;
+}
+
 .home {
   margin-bottom: 50px;
 }
@@ -3187,10 +3235,17 @@ html {
   opacity: 1;
   border: 1.5px solid hsl(77, 100%, 50%);
 }
+.product-review__thumb-img:not(.product-review__thumb-img--current):hover {
+  opacity: 1;
+  border-color: #9e9da8;
+  transition: none;
+  transform: none;
+}
 
 .product-info {
   padding: 60px;
   background: var(--product-detail-info-bg);
+  border-radius: 10px;
 }
 @media (max-width: calc(1400px - 0.02px)) {
   .product-info {
@@ -3278,12 +3333,6 @@ html {
 .product-rank__icon {
   align-items: flex-start;
 }
-@media (max-width: calc(768px - 0.02px)) {
-  .product-prop,
-  .product-rank {
-    margin-top: 16px;
-  }
-}
 
 .product-props {
   margin-left: 30px;
@@ -3306,6 +3355,38 @@ html {
 }
 .product-prop__desc {
   margin-top: 4px;
+}
+
+.product-tab__list {
+  display: flex;
+  align-items: center;
+  margin: 0 -30px;
+}
+.product-tab__item {
+  padding: 0 30px;
+  color: #9e9da8;
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 145%;
+}
+.product-tab__item--active {
+  color: inherit;
+}
+.product-tab__contents {
+  padding-top: 30px;
+}
+.product-tab__content {
+  display: none;
+}
+.product-tab__content--active {
+  display: block;
+}
+
+.prod-content__heading {
+  margin-bottom: 30px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 142%;
 }
 
 /*# sourceMappingURL=main.css.map */
