@@ -222,6 +222,12 @@
     flex-wrap: wrap;
     align-items: center;
     margin: 0 -30px;
+
+    @include abstracts.screen(md) {
+      flex-direction: column;
+      display: flex;
+      align-items: flex-start;
+    }
   }
 
   &__item {
@@ -230,14 +236,27 @@
     font-size: 2.2rem;
     font-weight: 500;
     line-height: 160%;
+    user-select: none;
+
+    &:not(&--active) {
+      cursor: pointer;
+    }
 
     &--active {
       color: inherit;
+    }
+
+    @include abstracts.screen(md) {
+      font-size: 1.8rem;
     }
   }
 
   &__contents {
     padding-top: 30px;
+
+    @include abstracts.screen(lg) {
+      padding-top: 15px;
+    }
   }
 
   &__content {

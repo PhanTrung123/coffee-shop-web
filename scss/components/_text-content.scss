@@ -1,6 +1,12 @@
+@use "../abstracts";
 .text-content {
   font-size: 1.6rem;
   line-height: 145%;
+
+  @include abstracts.screen(md) {
+    font-size: 1.4rem;
+    line-height: 170%;
+  }
 
   h1,
   h2,
@@ -10,6 +16,10 @@
   h6,
   thead {
     font-weight: 600;
+
+    @include abstracts.screen(xl) {
+      line-height: 145%;
+    }
   }
 
   h1 {
@@ -79,6 +89,10 @@
     p {
       margin: 0;
     }
+
+    @include abstracts.screen(md) {
+      padding: 10px;
+    }
   }
 
   hr {
@@ -89,8 +103,11 @@
   }
 
   ul li {
-    list-style: none;
     list-style-type: disc;
+
+    @include abstracts.screen(md) {
+      list-style-type: none;
+    }
   }
 
   table {
@@ -109,5 +126,9 @@
   td {
     border: 2px solid #999;
     padding: 10px;
+
+    @include abstracts.screen(md) {
+      font-size: 1.4rem;
+    }
   }
 }
