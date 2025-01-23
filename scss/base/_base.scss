@@ -57,6 +57,16 @@ select {
   background: transparent;
 }
 
+i,
+em {
+  font-style: italic;
+}
+
+b,
+strong {
+  font-size: 600;
+}
+
 .icon {
   filter: var(--icon-color);
 }
