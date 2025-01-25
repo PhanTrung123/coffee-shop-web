@@ -4,7 +4,7 @@
   line-height: 145%;
 
   @include abstracts.screen(md) {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 170%;
   }
 
@@ -72,7 +72,7 @@
   }
 
   a {
-    color: #0808d5;
+    color: #0071dc;
     text-decoration: underline;
 
     &:active {

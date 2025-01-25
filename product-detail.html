@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -24,7 +24,7 @@
     <!-- HEADER -->
     <header id="header" class="header"></header>
     <script>
-      load("#header", "./templates/header-logined.html");
+      load("#header", "./templates/header.html");
     </script>
 
     <!-- MAIN -->
@@ -179,10 +179,30 @@
         <div class="product-container">
           <div class="product-tab js-tabs">
             <ul class="product-tab__list">
-              <li class="product-tab__item product-tab__item--active">Description</li>
+              <li class="product-tab__item product-tab__item--active">
+                <img
+                  src="./assets/icons/intro-auth/period.svg"
+                  alt=""
+                  class="icon product-tab__item-icon d-none d-md-block"
+                />
+                Description
+              </li>
 
-              <li class="product-tab__item">Review (1100)</li>
-              <li class="product-tab__item">Similar</li>
+              <li class="product-tab__item">
+                <img
+                  src="./assets/icons/intro-auth/period.svg"
+                  alt=""
+                  class="icon product-tab__item-icon d-none d-md-block"
+                />
+                Review (1100)
+              </li>
+              <li class="product-tab__item">
+                <img
+                  src="./assets/icons/intro-auth/period.svg"
+                  alt=""
+                  class="icon product-tab__item-icon d-none d-md-block"
+                />Similar
+              </li>
             </ul>
             <div class="product-tab__contents">
               <div class="product-tab__content product-tab__content--active">

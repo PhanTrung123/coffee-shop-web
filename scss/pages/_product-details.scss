@@ -231,6 +231,7 @@
   }
 
   &__item {
+    display: flex;
     padding: 0 30px;
     color: #9e9da8;
     font-size: 2.2rem;
@@ -247,7 +248,15 @@
     }
 
     @include abstracts.screen(md) {
-      font-size: 1.8rem;
+      gap: 10px;
+      display: flex;
+      width: 100%;
+      line-height: 170%;
+      font-size: 2rem;
+    }
+
+    &-icon {
+      width: 10px;
     }
   }
 
@@ -324,7 +333,7 @@
       line-height: 145%;
 
       @include abstracts.screen(lg) {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
       }
     }
 
@@ -334,7 +343,7 @@
       margin-top: 6px;
 
       @include abstracts.screen(lg) {
-        font-size: 1rem;
+        font-size: 1.3rem;
       }
     }
 
