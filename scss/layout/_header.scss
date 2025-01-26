@@ -303,6 +303,10 @@
   right: -80%;
   min-width: 545px;
 
+  &__favorite {
+    right: -165px;
+  }
+
   &__inner {
     position: relative;
     border-radius: 20px;
