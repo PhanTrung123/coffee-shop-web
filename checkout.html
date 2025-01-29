@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Check Out | Cups & Pups</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- JS code -->
+    <script src="./assets/js/scripts.js"></script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="header" class="header"></header>
+    <script>
+      load("#header", "./templates/header.html");
+    </script>
+
+    <!-- MAIN -->
+    <main class="product-page checkout-page">
+      <div class="container">
+        <!-- Search bar (chỉ dành cho mobile) -->
+        <div class="product-container">
+          <div class="search-bar d-none d-md-flex">
+            <input type="text" name="" id="" class="search-bar__input" placeholder="Search for products" />
+            <button class="search-bar_submit">
+              <img src="./assets/icons/search.svg" alt="" class="icon search-bar__icon" />
+            </button>
+          </div>
+        </div>
+
+        <!-- Breadcrumbs (đường dẫn) -->
+        <div class="product-container">
+          <ul class="breadcrumb checkout-container-page">
+            <li class="breadcrumb__item">
+              <a href="./" class="breadcrumb__link"
+                >Home
+                <img src="./assets/icons/arrow-right.svg" alt="" />
+              </a>
+            </li>
+            <li class="breadcrumb__item">
+              <a href="#!" class="breadcrumb__link breadcrumb__link--current">Checkout </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Checkout content -->
+        <div class="checkout-container">
+          <div class="row">
+            <div class="col-8">
+              <div class="checkout">
+                <div class="checkout-info">
+                  <!-- Cart item 1 -->
+                  <article class="checkout-info__item">
+                    <a href="./product-detail.html">
+                      <img src="./assets/img/category-item/item-01.png" alt="" class="checkout-info__item--thumb" />
+                    </a>
+                    <div class="checkout-info__content">
+                      <div class="checkout-info__content-left">
+                        <h3 class="checkout-info__title">
+                          <a href="./product-detail.html"> ARABICA Coffee (Powder-Beans) - 250gr Park </a>
+                        </h3>
+                        <p class="checkout-info__price">120.000đ | <span class="checkout-info__status">1 Pack</span></p>
+                        <div class="checkout-info__control">
+                          <div class="checkout-info__input">
+                            <select name="weight" class="checkout-info__input-choose" id="">
+                              <option value="" disabled selected>-- Style</option>
+                              <option value="gram">Gram</option>
+                              <option value="gram">Kg</option>
+                              <option value="pound">Pound</option>
+                            </select>
+                          </div>
+                          <div class="checkout-info__input">
+                            <div class="checkout-info__input-quatity">
+                              <button class="checkout-info__input-btn">
+                                <img src="./assets/icons/minus.svg" alt="" />
+                              </button>
+                              <span>1</span>
+                              <button class="checkout-info__input-btn">
+                                <img src="./assets/icons/plus.svg" alt="" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="checkout-info__content-right">
+                        <p class="checkout-info__total-price">120.000đ</p>
+                        <div class="checkout-info__update">
+                          <button class="checkout-info__update-btn">
+                            <img src="./assets/icons/heart.svg" alt="" class = /> Save
+                          </button>
+                          <button class="checkout-info__update-btn">
+                            <img src="./assets/icons/trash.svg" alt="" class = /> Delete
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <!-- Cart item 2 -->
+                  <article class="checkout-info__item">
+                    <a href="./product-detail.html">
+                      <img src="./assets/img/category-item/item-01.png" alt="" class="checkout-info__item--thumb" />
+                    </a>
+                    <div class="checkout-info__content">
+                      <div class="checkout-info__content-left">
+                        <h3 class="checkout-info__title">
+                          <a href="./product-detail.html"> ARABICA Coffee (Powder-Beans) - 250gr Park </a>
+                        </h3>
+                        <p class="checkout-info__price">120.000đ | <span class="checkout-info__status">1 Pack</span></p>
+                        <div class="checkout-info__control">
+                          <div class="checkout-info__input">
+                            <select name="weight" class="checkout-info__input-choose" id="">
+                              <option value="" disabled selected>-- Style</option>
+                              <option value="gram">Gram</option>
+                              <option value="gram">Kg</option>
+                              <option value="pound">Pound</option>
+                            </select>
+                          </div>
+                          <div class="checkout-info__input">
+                            <div class="checkout-info__input-quatity">
+                              <button class="checkout-info__input-btn">
+                                <img src="./assets/icons/minus.svg" alt="" />
+                              </button>
+                              <span>1</span>
+                              <button class="checkout-info__input-btn">
+                                <img src="./assets/icons/plus.svg" alt="" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="checkout-info__content-right">
+                        <p class="checkout-info__total-price">120.000đ</p>
+                        <div class="checkout-info__update">
+                          <button class="checkout-info__update-btn">
+                            <img src="./assets/icons/heart.svg" alt="" class = /> Save
+                          </button>
+                          <button class="checkout-info__update-btn">
+                            <img src="./assets/icons/trash.svg" alt="" class = /> Dalete
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <!-- Cart item 3 -->
+                  <article class="checkout-info__item">
+                    <a href="./product-detail.html">
+                      <img src="./assets/img/category-item/item-01.png" alt="" class="checkout-info__item--thumb" />
+                    </a>
+                    <div class="checkout-info__content">
+                      <div class="checkout-info__content-left">
+                        <h3 class="checkout-info__title">
+                          <a href="./product-detail.html"> ARABICA Coffee (Powder-Beans) - 250gr Park </a>
+                        </h3>
+                        <p class="checkout-info__price">120.000đ | <span class="checkout-info__status">1 Pack</span></p>
+                        <div class="checkout-info__control">
+                          <div class="checkout-info__input">
+                            <select name="weight" class="checkout-info__input-choose" id="">
+                              <option value="" disabled selected>-- Style</option>
+                              <option value="gram">Gram</option>
+                              <option value="gram">Kg</option>
+                              <option value="pound">Pound</option>
+                            </select>
+                          </div>
+                          <div class="checkout-info__input">
+                            <div class="checkout-info__input-quatity">
+                              <button class="checkout-info__input-btn">
+                                <img src="./assets/icons/minus.svg" alt="" />
+                              </button>
+                              <span>1</span>
+                              <button class="checkout-info__input-btn">
+                                <img src="./assets/icons/plus.svg" alt="" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="checkout-info__content-right">
+                        <p class="checkout-info__total-price">120.000đ</p>
+                        <div class="checkout-info__update">
+                          <button class="checkout-info__update-btn">
+                            <img src="./assets/icons/heart.svg" alt="" class = /> Save
+                          </button>
+                          <button class="checkout-info__update-btn">
+                            <img src="./assets/icons/trash.svg" alt="" class = /> Dalete
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="checkout-bottom">
+                  <div class="checkout-bottom__bill">
+                    <div class="row">
+                      <div class="col-8">
+                        <div class="checkout-bottom__continue">
+                          <a href="./" class="checkout-bottom__continue--link">
+                            <img src="./assets/icons/arrow-left.svg" alt="" />
+                            Continue Shopping
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="row">
+                          <div class="checkout-bottom__label">
+                            <span>Subtotal</span>
+                            <span>360.000đ</span>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="checkout-bottom__label">
+                            <span>Shipping</span>
+                            <span>10.000đ</span>
+                          </div>
+                        </div>
+                          <div class="checkout-bottom__label--separate"></div>
+                          <div class="row">
+                            <div class=" checkout-bottom__label bold">
+                              <span>Total</span>
+                              <span>370.000đ</span>
+                            </div>
+                          </div>
+                        </div>
+              </div>
+                  </div>
+                 
+            <div class="col-4"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- FOOTER -->
+    <footer id="footer" class="footer"></footer>
+    <script>
+      load("#footer", "./templates/footer.html");
+    </script>
+  </body>
+</html>
