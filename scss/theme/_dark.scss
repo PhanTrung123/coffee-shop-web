@@ -24,7 +24,7 @@ html.dark {
     brightness(115%) contrast(95%);
 
   //Sidebar (cho tablet đổ xuống)
-  --sidebar-bg: #292e39;
+  --sidebar-bg: #181c24;
   --sidebar-shadow: rgba(23, 28, 40, 0.4);
 
   //cate-item
@@ -98,4 +98,10 @@ html.dark {
   --act-dropdown-shadow: rgba(0, 0, 0, 0.4);
   --cart-dropdown-border-color: #181c24;
   --cart-separate-border-color: #181c24;
+
+  //check-out page
+  --checkout-page-bg-color: #2f3441;
+  --breadcumb-checkout-bg-color: #181c24;
+  --checkout-info-bg: #181c24;
+  --checkout-info-shadow: rgba(23, 28, 40, 0.4);
 }

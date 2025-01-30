@@ -1380,7 +1380,7 @@ html.dark {
   --top-menu-border-color: #171c28;
   --dropdown-icon2-color: brightness(0) saturate(100%) invert(98%) sepia(82%) saturate(225%) hue-rotate(221deg)
     brightness(115%) contrast(95%);
-  --sidebar-bg: #292e39;
+  --sidebar-bg: #181c24;
   --sidebar-shadow: rgba(23, 28, 40, 0.4);
   --cate-item-bg: #171c28;
   --cate-item-thumb-bg: #292e39;
@@ -1419,6 +1419,10 @@ html.dark {
   --act-dropdown-shadow: rgba(0, 0, 0, 0.4);
   --cart-dropdown-border-color: #181c24;
   --cart-separate-border-color: #181c24;
+  --checkout-page-bg-color: #2f3441;
+  --breadcumb-checkout-bg-color: #181c24;
+  --checkout-info-bg: #181c24;
+  --checkout-info-shadow: rgba(23, 28, 40, 0.4);
 }
 @media (max-width: calc(992px - 0.02px)) {
   html.dark {
@@ -3968,7 +3972,7 @@ html {
 @media (max-width: calc(768px - 0.02px)) {
   .checkout-info__total-price {
     text-align: left;
-    padding: 20px 0;
+    padding: 16px 0;
   }
 }
 .checkout-info__update {
