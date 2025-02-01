@@ -1423,6 +1423,8 @@ html.dark {
   --breadcumb-checkout-bg-color: #181c24;
   --checkout-info-bg: #181c24;
   --checkout-info-shadow: rgba(23, 28, 40, 0.4);
+  --dialog-bg-color: #1d222b;
+  --dialog-shadow-color: rgba(23, 28, 40, 0.4);
 }
 @media (max-width: calc(992px - 0.02px)) {
   html.dark {
@@ -1489,6 +1491,8 @@ html {
   --breadcumb-checkout-bg-color: #fff;
   --checkout-info-bg: #fff;
   --checkout-info-shadow: rgba(237, 237, 246, 0.2);
+  --dialog-bg-color: #fff;
+  --dialog-shadow-color: rgba(200, 200, 200, 0.4);
 }
 @media (max-width: calc(992px - 0.02px)) {
   html {
@@ -3226,6 +3230,61 @@ html {
   .text-content th,
   .text-content td {
     font-size: 1.4rem;
+  }
+}
+
+.dialog__block, .dialog {
+  position: fixed;
+  inset: 0;
+}
+
+.dialog {
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity, visibility;
+  transition-duration: 0.2s;
+}
+.dialog.show {
+  opacity: 1;
+  visibility: visible;
+}
+.dialog__block {
+  background: rgba(0, 0, 0, 0.4);
+}
+.dialog__content {
+  position: relative;
+  max-width: min(450px, 100% - 40px);
+  background-color: var(--dialog-bg-color);
+  box-shadow: 0px 40px 90px 20px var(--dialog-shadow-color);
+  z-index: 1;
+  padding: 30px;
+  border-radius: 20px;
+}
+.dialog__text {
+  font-size: 1.8rem;
+  line-height: 145%;
+}
+.dialog__button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 30px;
+  white-space: nowrap;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+@media (max-width: calc(768px - 0.02px)) {
+  .dialog__button {
+    gap: 20px;
+  }
+}
+@media (max-width: calc(768px - 0.02px)) {
+  .dialog__btn {
+    flex: 1;
   }
 }
 
