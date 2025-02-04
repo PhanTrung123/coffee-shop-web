@@ -113,38 +113,15 @@ $error-color: #ed4337;
         font-size: 1.4rem;
       }
     }
+    &-input {
+      appearance: none;
 
-    &::before {
-      content: "";
-      width: 20px;
-      height: 20px;
-      border-radius: 6px;
-      border: 2px solid #9e9da8;
-      background: #fff;
-      transition: all 0.3s;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 25%;
-      left: 7px;
-      width: 7px;
-      height: 13px;
-      border: 2.5px solid #fff;
-      border-width: 0 2.5px 2.5px 0;
-      transform: rotate(45deg) scale(0);
-    }
-
-    &:has(:checked) {
       &::before {
-        border-color: #9e9da8;
-        background: #ffb700;
+        content: url("../icons/checked.svg");
       }
 
-      &::after {
-        transform: rotate(45deg) scale(1);
-        border-color: #fff;
+      &:checked::before {
+        content: url("../icons/un-checked.svg");
       }
     }
   }
