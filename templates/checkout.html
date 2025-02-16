@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Shipping | Cups & Pups</title>
+    <title>Check Out | Cups & Pups</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
@@ -22,9 +22,9 @@
   </head>
   <body>
     <!-- HEADER -->
-    <header id="header" class="header"></header>
+    <header id="header-logined" class="header-logined"></header>
     <script>
-      load("#header", "./templates/header.html");
+      load("#header-logined", "./templates/header-logined.html");
     </script>
 
     <!-- MAIN -->
@@ -50,13 +50,7 @@
               </a>
             </li>
             <li class="breadcrumb__item">
-                <a href="./checkout.html" class="breadcrumb__link"
-                  >Checkout
-                  <img src="./assets/icons/arrow-right.svg" alt="" />
-                </a>
-              </li>
-            <li class="breadcrumb__item">
-              <a href="#!" class="breadcrumb__link breadcrumb__link--current">Shipping </a>
+              <a href="#!" class="breadcrumb__link breadcrumb__link--current">Checkout </a>
             </li>
           </ul>
         </div>
@@ -65,89 +59,7 @@
           <div class="row">
             <div class="col-8 col-xl-12">
               <div class="checkout">
-
-                <!-- shipping (địa chỉ giao hàng) -->
-                <div class="shipping-info">
-                    <div>
-                        <h1 class="shipping-info__heading">1. The delivery is expected within the next 3 days.</h1>
-                        <div class="shipping-info__separate"></div>
-                    </div>
-                    
-                    <!-- shipping address -->
-                     <div class="shipping-info__address">
-                        <div class="shipping-info__top">
-                            <div>
-                                <h2 class="shipping-info__title">Shipping address</h2>
-                                <p class="shipping-info__desc">Enter the shipping address for delivery.</p>
-                            </div>
-                            <button class="btn btn--primary btn--rounded shipping-info__btn">
-                                <img src="./assets/icons/plus.svg" alt="">
-                                Add a new address
-                            </button>
-                        </div>
-                        <div class="address-list">
-                          <!-- message khi thông tin địa chỉ bị trống -->
-                           <!-- <p class = "address-list__message">
-                            Not address yet! <a href="#" class = "address-list__message--link">Add a new address</a>
-                           </p> -->
-                            <article class = "address-card " >
-                              <div class="address-card__left">
-                                <div class="address-card__choose">
-                                  <!--user check -->
-                                  <label class = "address-card__check">   
-                                    <input type="checkbox" class = "address-card__check--input " checked>
-                                  </label>
-                                  <div>
-                                    <h3 class = "address-card__title">Trung Phan</h3>
-                                    <p class = "address-card__desc">42 Ha Huy Tap, Thanh Khe District, Da Nang</p>
-                                    <ul class="address-card__list">
-                                      <li>Shipping</li>
-                                      <li>Delivery from store</li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                
-                              </div>
-                              <div class="address-card__right">
-                                <button href="" class="address-card__edit">
-                                  <img src="./assets/icons/edit.svg" alt="" class = "icon">
-                                  <span class = address-card__edit-text>Edit</span>
-                                </button>
-                                
-                              </div>
-                            </article>
-                            <article class = "address-card " >
-                              <div class="address-card__left">
-                                <div class="address-card__choose">
-                                  <!--user check -->
-                                  <label class = "address-card__check">   
-                                    <input type="checkbox" class = "address-card__check--input " checked>
-                                  </label>
-                                  <div>
-                                    <h3 class = "address-card__title">Trung Phan</h3>
-                                    <p class = "address-card__desc">42 Ha Huy Tap, Thanh Khe District, Da Nang</p>
-                                    <ul class="address-card__list">
-                                      <li>Shipping</li>
-                                      <li>Delivery from store</li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                
-                              </div>
-                              <div class="address-card__right">
-                                <button href="" class="address-card__edit">
-                                  <img src="./assets/icons/edit.svg" alt="" class = "icon">
-                                  <span class = address-card__edit-text>Edit</span>
-                                </button>
-                                
-                              </div>
-                            </article>
-                        </div>
-
-                        <div class="shipping-info__separate"></div>
-
-                     </div>
-                </div>
+                <div class="checkout-info">
                   <!-- Cart item 1 -->
                   <article class="checkout-info__item">
                     <a href="./product-detail.html">
@@ -286,7 +198,7 @@
                       </div>
                     </div>
                   </article>
-             
+                </div>
                 <div class="checkout-bottom d-md-none">
                     <div class="row">
                       <div class="col-8 col-xxl-7">
@@ -349,7 +261,9 @@
       <span>370.000đ</span>
     </div>
   </div>
-  <div class="btn btn--rounded btn--primary checkout-right__btn"><a href="">Submit</a></div>
+  <div class="btn btn--rounded btn--primary checkout-right__btn">
+    <a href="./shipping.html">Continue to checkout</a>
+  </div>
 </div>
 
 <div class="checkout">
